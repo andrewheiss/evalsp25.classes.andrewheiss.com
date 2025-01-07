@@ -1,0 +1,131 @@
+---
+title: "Regression and inference"
+date: "2024-01-18"
+---
+
+```{r slides-videos, echo=FALSE, include=FALSE}
+source(here::here("R", "slide-things.R"))
+source(here::here("R", "youtube-playlist.R"))
+
+playlist_id <- "PLS6tnpTr39sERjvBbJGr9mpqvtiLVPzd4"
+
+slide_details <- tibble::tribble(
+  ~youtube_id,   ~title, ~slide, ~active,
+  "S4OmWxc3h3Y", "Introduction", "1", TRUE,
+  "DGbLEgL4g6Y", "Drawing lines", "drawing-lines", FALSE,
+  "n-rV1TIoIgw", "Lines, Greek, and regression", "lines-greek-regression", FALSE,
+  "RYKsrTKWCR4", "Null worlds and statistical significance", "significance", FALSE
+)
+```
+
+## Readings
+
+- {{< fa book >}} Chapters 3 and 4 in *The Effect* [@Huntington-Klein:2021]
+
+
+## Recommended readings
+
+Look through your notes on regression from your last stats class. Also, you can skim through these resources:
+
+- {{< fa book >}} [5.1–5.4 in *ModernDive*](https://moderndive.com/5-regression.html) [@IsmayKim:2019]
+- {{< fa book >}} [6.1–6.4 in *ModernDive*](https://moderndive.com/6-multiple-regression.html) [@IsmayKim:2019]
+- {{< fa book >}} 7.1–7.3 in *OpenIntro Statistics* [@DiezCetinkaya-RundelBarr:2019]
+- {{< fa book >}} 8.1 in *OpenIntro Statistics* [@DiezCetinkaya-RundelBarr:2019]
+
+We'll review all this regression stuff in the videos, so *don't panic* if this all looks terrifying! Also, take advantage of the videos that accompany the *OpenIntro* chapters. And *also*, the *OpenIntro* chapters are heavier on the math—don't worry if you don't understand everything.
+
+
+
+## Slides
+
+The slides for today's lesson are available online as an HTML file. Use the buttons below to open the slides either as an interactive website or as a static PDF (for printing or storing for later). You can also click in the slides below and navigate through them with your left and right arrow keys.
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/02-slides")
+slide_frame("/slides/02-slides.html")
+```
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+
+
+## Videos
+
+```{r show-youtube-list, echo=FALSE, results="asis"}
+youtube_list(slide_details, playlist_id)
+```
+
+## In-class stuff
+
+Here are all the materials we'll use in class:
+
+- [**Session 2 FAQ slides**](/slides/02-class.html) ([PDF](/slides/02-class.pdf))
+- [Errors vs. warnings vs. messages](https://moderndive.com/1-getting-started.html#messages) (i.e. what to do when R shows you red text)
+
+Reading in grad school:
+
+- {{< fa file-pdf >}} Michael J. Nelson, “How to Read Journal Articles Like a Professor,” 2021, <http://mjnelson.org/Teaching/HowToRead.pdf>.
+- {{< fa file-pdf >}} The “How to Read” section in Amelia Hoover Green, “Reading and Writing in College: Ten Years of Tip Sheets in One Handy Document,” September 2021, <https://www.ameliahoovergreen.com/uploads/9/3/0/9/93091546/writing-guide.pdf>.
+
+Hands-on R materials:
+
+- [{{< fa brands r-project >}} Posit.cloud project](https://posit.cloud/spaces/462899/content/7344112)
+- [{{< fa file-zipper >}} Project `.zip` file](/projects/01-class.zip)
+- [{{< fa file-csv >}} Gapminder data](/files/data/package_data/gapminder.csv)
+
+Live code:
+
+- [{{< fa brands r-project >}} Live code on Dropbox](https://andhs.co/live)
+
+Lab materials: 
+
+- [Lab slides 1: Markdown and universal writing](/slides/01-class_01_markdown-writing.html) ([PDF](/slides/01-class_01_markdown-writing.pdf))
+- [Lab slides 2: Getting started with R and RStudio](/slides/01-class_02-getting-started.html) ([PDF](/slides/01-class_02-getting-started.pdf))
+- [Lab slides 3: Data basics](/slides/01-class_03_data-basics.html) ([PDF](/slides/01-class_03_data-basics.pdf))
+- [Lab slides 4: Visualize data with ggplot2](/slides/01-class_04_visualize-data.html) ([PDF](/slides/01-class_04_visualize-data.pdf))
+- [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
+
+
+```{verbatim include=FALSE}
+Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sERjvBbJGr9mpqvtiLVPzd4
+
+https://youtu.be/S4OmWxc3h3Y
+PMAP 8521 • (2) Regression and inference: (0) Introduction
+
+Introduction to the class session on regression and inference
+
+Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/02-content/
+
+
+https://youtu.be/DGbLEgL4g6Y
+PMAP 8521 • (2) Regression and inference: (1) Drawing lines
+
+Overview of the basics of regression analysis (particularly ordinary least squares (OLS) regression)
+
+Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/02-content/
+
+  
+https://youtu.be/n-rV1TIoIgw
+PMAP 8521 • (2) Regression and inference: (2) Lines, Greek, and regression
+
+Discussion of how to estimate parameters from a population using regression (with R specifically)
+
+Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/02-content/
+
+
+https://youtu.be/RYKsrTKWCR4
+PMAP 8521 • (2) Regression and inference: (3) Null worlds and statistical significance
+
+Discussion of statistical significance and p-values using simulated null worlds
+
+Access the slides and other materials at the course website at https://evalf20.classes.andrewheiss.com/content/02-content/
+
+
+https://youtu.be/E-Zz5S5NOUo
+PMAP 8521 • Example: Regression with R
+
+Demonstration of how to run regression models with R
+
+Download the data and see the polished code at https://evalf20.classes.andrewheiss.com/example/regression/
+```
