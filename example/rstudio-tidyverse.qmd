@@ -29,7 +29,7 @@ Complete these primers. It seems like there are a lot, but they're short and go 
 - **Tidy Your Data**
   - [Reshape Data](https://andrewheiss.shinyapps.io/ath-primers-tidy-data-01-reshape/)
 
-The content from these primers comes from the (free and online!) book [*R for Data Science* by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/). I highly recommend the book as a reference and for continuing to learn and use R in the future.
+The content from these primers comes from the (free and online!) book [*R for Data Science* by Garrett Grolemund and Hadley Wickham](https://r4ds.hadley.nz/). I highly recommend the book as a reference and for continuing to learn and use R in the future.
 
 
 ## Part 2: Getting familiar with RStudio
@@ -61,7 +61,7 @@ It's always best to point R at some other directory. If you don't use RStudio, y
 
 The best way to deal with working directories with RStudio is to use RStudio Projects. These are special files that RStudio creates for you that end in a `.Rproj` extension. When you open one of these special files, a new RStudio instance will open up and be pointed at the correct directory automatically. If you move the folder later or open it on a different computer, it will work just fine and you will not be sad.
 
-[Read this super short chapter on RStudio projects to learn how to create and use them](https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects)
+[Read this super short chapter on RStudio projects to learn how to create and use them](https://r4ds.hadley.nz/workflow-scripts.html#projects)
 
 In general, you can create a new project by going to File > New Project > New Directory > Empty Project, which will create a new folder on your computer that is empty except for a single `.Rproj` file. Double click on that file to open an RStudio instance that is pointed at the correct folder.
 
@@ -95,4 +95,3 @@ Do the following things:
     <div class="ratio ratio-16x9">
     <iframe src="https://www.youtube.com/embed/fT5xI1cmE2c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-

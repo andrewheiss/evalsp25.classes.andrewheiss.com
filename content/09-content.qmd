@@ -1,11 +1,13 @@
 ---
 title: "Difference-in-differences II"
-date: "2024-03-07"
+date: "2025-03-13"
 ---
 
 ## Readings
 
 This session is a continuation of [session 8](/content/08-content/).
+
+:::: {.content-hidden}
 
 ## In-class stuff
 
@@ -24,3 +26,5 @@ GitHub Copilot
 - [Set up Copilot in RStudio](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html)
 - [How to use GitHub Copilot and ChatGPT in RStudio - get setup in less than 5 minutes!](https://www.youtube.com/watch?v=t7NrkAeosog)
 - [Copilot tips](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)
+
+::::

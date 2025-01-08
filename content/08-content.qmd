@@ -1,6 +1,6 @@
 ---
 title: "Difference-in-differences I"
-date: "2024-02-29"
+date: "2025-03-06"
 ---
 
 ```{r slides-videos, echo=FALSE, include=FALSE}
@@ -45,6 +45,8 @@ slide_frame("/slides/08-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
+:::: {.content-hidden}
+
 ## In-class stuff
 
 Here are all the materials we'll use in class:
@@ -53,6 +55,7 @@ Here are all the materials we'll use in class:
 - [Session 8 R code](/projects/week-8.zip) (on [Posit.cloud](https://posit.cloud/spaces/462899/content/7707970))
 - [Two-way fixed-effects diagnostics](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)
 
+::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHydbEoTK9DkyKV92-uE3r-

@@ -1,6 +1,6 @@
 ---
 title: "Theories of change and logic models"
-date: "2024-01-25"
+date: "2025-01-30"
 ---
 
 ```{r slides-videos, echo=FALSE, include=FALSE}
@@ -45,6 +45,8 @@ slide_frame("/slides/03-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
+:::: {.content-hidden}
+
 ## In-class stuff
 
 Here are all the materials we'll use in class:
@@ -63,6 +65,8 @@ Hands-on R materials:
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics(here::here("files", "img", "mpa-mpp-logic-model.jpg"), error = FALSE)
 ```
+
+::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHjKJRcD-ebQUbcaFhc0cQH

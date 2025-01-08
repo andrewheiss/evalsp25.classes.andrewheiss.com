@@ -323,7 +323,7 @@ You can include a special section at the top of a Markdown document that contain
 ```yaml
 ---
 title: Title of your document
-date: "January 4, 2024"
+date: "January 16, 2025"
 author: "Your name"
 ---
 ```
@@ -356,7 +356,7 @@ One of the most powerful features of Markdown + pandoc is the ability to automat
    ```yaml
    ---
    title: Title of your document
-   date: "January 4, 2024"
+   date: "January 16, 2025"
    author: "Your name"
    bibliography: name_of_file.bib
    ---
@@ -367,7 +367,7 @@ One of the most powerful features of Markdown + pandoc is the ability to automat
    ```yaml
    ---
    title: Title of your document
-   date: "January 4, 2024"
+   date: "January 16, 2025"
    author: "Your name"
    bibliography: name_of_file.bib
    csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"

@@ -1,6 +1,6 @@
 ---
 title: "DAGs and potential outcomes"
-date: "2024-02-08"
+date: "2025-02-13"
 ---
 
 ```{r slides-videos, echo=FALSE, include=FALSE}
@@ -58,27 +58,33 @@ Here are all the materials we'll use in class:
 
 ### Confounding, unblocked
 
+```{=html}
 <div class="ratio ratio-16x9">
 <video controls loop>
 <source src="/slides/img/05-class/video-confounding-unblocked.mp4" type="video/mp4">
 </video>
 </div>
+```
 
 ### Confounding, blocked
 
+```{=html}
 <div class="ratio ratio-16x9">
 <video controls loop>
 <source src="/slides/img/05-class/video-confounding-blocked.mp4" type="video/mp4">
 </video>
 </div>
+```
 
 ### Mediation
 
+```{=html}
 <div class="ratio ratio-16x9">
 <video controls loop>
 <source src="/slides/img/05-class/video-mediation.mp4" type="video/mp4">
 </video>
 </div>
+```
 
 ### Logic model and DAG for closing streets program
 

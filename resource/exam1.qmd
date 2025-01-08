@@ -37,7 +37,7 @@ title: "Things you should know for Exam 1"
 
 **Helpful resources:**
 
-- {{< fa book >}} Garrett Grolemund and Hadley Wickham, [*R for Data Science*](https://r4ds.had.co.nz/)
+- {{< fa book >}} Garrett Grolemund and Hadley Wickham, [*R for Data Science*](https://r4ds.hadley.nz/)
 - {{< fa book >}} Kieran Healy, ["How ggplot works,"](http://socviz.co/makeplot.html#how-ggplot-works) chapter 3 in *Data Visualization: A Practical Introduction*
 
 ## Theories of change and measurement
