@@ -169,6 +169,35 @@
       ],
       "Hash": "0776bf7526869e0286b0463cb72fb211"
     },
+    "MetBrewer": {
+      "Package": "MetBrewer",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "ggplot2"
+      ],
+      "Hash": "9dda8af6359c4b3932426430c38fa1b1"
+    },
+    "MoMAColors": {
+      "Package": "MoMAColors",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "BlakeRMills",
+      "RemoteRepo": "MoMAColors",
+      "RemoteRef": "main",
+      "RemoteSha": "6f5d75decc3f0063b199d5f0127d63c950528b8a",
+      "Requirements": [
+        "cowplot",
+        "ggplot2",
+        "ggstream",
+        "graphics",
+        "stats"
+      ],
+      "Hash": "0b3adc6e7f959d5920bbec1ce3efaa1e"
+    },
     "QuickJSR": {
       "Package": "QuickJSR",
       "Version": "1.4.0",
@@ -1609,6 +1638,18 @@
       ],
       "Hash": "141e061a5a68d463f11a4b5819ef0357"
     },
+    "ggokabeito": {
+      "Package": "ggokabeito",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "grDevices"
+      ],
+      "Hash": "3ebb1aa87a9e095e5693c7fa782a6b1b"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.5.1",
@@ -1703,6 +1744,23 @@
         "withr"
       ],
       "Hash": "66488692cb8621bc78df1b9b819497a6"
+    },
+    "ggstream": {
+      "Package": "ggstream",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "dplyr",
+        "forcats",
+        "ggplot2",
+        "magrittr",
+        "purrr",
+        "stats",
+        "tidyr"
+      ],
+      "Hash": "4512013654d28dbf39dc4a8f5b9bdde2"
     },
     "ggtext": {
       "Package": "ggtext",
@@ -3191,6 +3249,18 @@
       ],
       "Hash": "5e3c5dc0b071b21fa128676560dbe94d"
     },
+    "rcartocolor": {
+      "Package": "rcartocolor",
+      "Version": "2.1.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "scales"
+      ],
+      "Hash": "f9cde980189339bebe5bb22af925dd3c"
+    },
     "rddensity": {
       "Package": "rddensity",
       "Version": "2.6",
@@ -3604,6 +3674,18 @@
         "viridisLite"
       ],
       "Hash": "c19df082ba346b0ffa6f833e92de34d1"
+    },
+    "scico": {
+      "Package": "scico",
+      "Version": "1.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "scales"
+      ],
+      "Hash": "742a3472a1d45462e66f75dc510f24f6"
     },
     "secretbase": {
       "Package": "secretbase",
