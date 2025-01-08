@@ -1,6 +1,6 @@
 ---
 title: "Causal models"
-subtitle: "Evaluation, part 3 --- PMAP 8521, Spring 2024"
+subtitle: "Evaluation, part 3 --- PMAP 8521, Spring 2025"
 author: "YOUR NAME HERE"
 date: "DATE GOES HERE"
 date-format: "long"

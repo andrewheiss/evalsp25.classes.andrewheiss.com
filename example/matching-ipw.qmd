@@ -8,6 +8,7 @@ knitr::opts_chunk$set(fig.width = 6, fig.asp = 0.618, fig.align = "center",
 set.seed(1234)
 options("digits" = 2, "width" = 150)
 options(dplyr.summarise.inform = FALSE)
+options("modelsummary_factory_default" = "kableExtra")
 ```
 
 ## Video walk-through

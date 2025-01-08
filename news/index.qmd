@@ -12,7 +12,7 @@ listing:
   sort-ui: true
   date-format: "dddd MMMM D, YYYY [at] h:mm A"
   feed: 
-    title: "Program Evaluation (PMAP 8521; Spring 2024) News"
+    title: "Program Evaluation (PMAP 8521; Spring 2025) News"
     description: "Updates and FAQs for PMAP 8521 at Georgia State University"
   categories: false
 page-layout: full

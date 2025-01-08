@@ -51,6 +51,8 @@ father_education <- tibble(
          ability = rescale(ability, to = c(0, 600))) |>  # Rescale as Hypothetical test scores
   select(wage, educ, ability, fathereduc) |> 
   mutate(across(everything(), ~round(., 2)))
+
+options("modelsummary_factory_default" = "kableExtra")
 ```
 
 ```{r xaringanExtra, echo=FALSE}

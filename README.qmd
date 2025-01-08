@@ -10,11 +10,15 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.retina = 3
 )
+
+withr::with_dir(here::here(), {
+  targets::tar_load(workflow_graph)
+})
 ```
 
 # Program Evaluation for Public Service <a href='https://evalsp25.classes.andrewheiss.com/'><img src='files/icon-512.png' align="right" height="139" /></a>
 
-[PMAP 8521 • Spring 2024](https://evalsp25.classes.andrewheiss.com/)  
+[PMAP 8521 • Spring 2025](https://evalsp25.classes.andrewheiss.com/)  
 [Andrew Heiss](https://www.andrewheiss.com/) • Andrew Young School of Policy Studies • Georgia State University
 
 ---
@@ -65,11 +69,7 @@ The complete pipeline looks like this:
 # Make sure there are newlines between the code block boundaries and the output
 # from `workflow`, which also needs to be separated by newlines
 cat("``` mermaid\n")
-targets::tar_mermaid(
-  targets_only = TRUE, outdated = FALSE,
-  legend = FALSE, color = FALSE
-) |>
-  cat(sep = "\n")
+cat(readr::read_file(workflow_graph))
 cat("\n```")
 ```
 

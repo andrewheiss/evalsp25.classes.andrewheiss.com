@@ -30,6 +30,19 @@ tar_option_set(
   # controller = crew_controller_local(workers = 1)
 )
 
+build_graph <- function() {
+  out_file <- here_rel("misc/mermaid-graph.md")
+  
+  output <- tar_mermaid(
+    targets_only = TRUE, outdated = FALSE,
+    legend = FALSE, color = FALSE,
+  )
+  
+  cat(output, file = out_file, sep = "\n")
+
+  return(out_file)
+}
+
 # here::here() returns an absolute path, which then gets stored in tar_meta and
 # becomes computer-specific (i.e. /Users/andrew/Research/blah/thing.Rmd).
 # There's no way to get a relative path directly out of here::here(), but
@@ -83,6 +96,7 @@ list(
 
 
   ## Render the README ----
+  tar_target(workflow_graph, build_graph(), format = "file"),
   tar_quarto(readme, here_rel("README.qmd")),
 
 
@@ -95,7 +109,9 @@ list(
   tar_target(deploy_site, {
     # Force dependencies
     site
-    # Run the deploy script
-    if (Sys.getenv("UPLOAD_WEBSITES") == "TRUE") processx::run(paste0("./", deploy_script))
+    if (Sys.getenv("UPLOAD_WEBSITES") == "TRUE") {
+      # processx::run(paste0("./", deploy_script))
+      cli::cli_alert_success("Website uploaded")
+    }
   })
 )

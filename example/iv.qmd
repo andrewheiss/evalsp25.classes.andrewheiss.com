@@ -8,6 +8,7 @@ knitr::opts_chunk$set(fig.width = 6, fig.asp = 0.618, fig.align = "center",
 set.seed(1234)
 options("digits" = 2, "width" = 150)
 options(dplyr.summarise.inform = FALSE)
+options("modelsummary_factory_default" = "kableExtra")
 ```
 
 ## Video walk-through
@@ -561,6 +562,7 @@ The p-value for the "Weak instruments" test is tiny, which means we can safely r
 To calculate Anderson-Rubin confidence intervals, we need to rerun the model with the `ivreg()` function (ugh) and feed those results to `anderson.rubin.ci()`:
 
 ```{r}
+#| eval: false
 model_again <- ivreg(lwage ~ educ + smsa66 + exper + expersq + black + south66 |
                        nearc4 + smsa66 + exper + expersq + black + south66,
                      data = card, x = TRUE)

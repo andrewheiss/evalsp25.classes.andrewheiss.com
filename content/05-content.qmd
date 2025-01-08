@@ -48,7 +48,7 @@ slide_frame("/slides/05-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-::: {.content-hidden}
+:::: {.content-hidden}
 
 ## In-class stuff
 
@@ -94,7 +94,7 @@ DAG:
 knitr::include_graphics(here::here("files", "img", "streets-dag.jpg"), error = FALSE)
 ```
 
-:::
+::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHwqEeiG5xb3zAHcQCGWZUC

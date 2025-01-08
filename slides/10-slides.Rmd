@@ -194,7 +194,7 @@ ggplot(rdd_dag, aes(x = x, y = y, xend = xend, yend = yend)) +
                        direction = "y") +
   scale_color_manual(values = status_colors, na.value = "grey20") +
   scale_fill_manual(values = status_colors, na.value = "grey20") +
-  guides(color = FALSE, fill = FALSE) + 
+  guides(color = "none", fill = "none") + 
   theme_dag(base_size = 20, base_family = "Fira Sans Condensed")
 ```
 
@@ -262,11 +262,11 @@ layout: false
 
 ```{r tutoring-running, echo=FALSE, fig.width=12, fig.height=6.5, out.width="100%"}
 ggplot(tutoring, aes(x = entrance_exam, y = tutoring_text, fill = tutoring_text)) +
-  geom_vline(xintercept = 70, size = 2, color = "#FFDC00") + 
+  geom_vline(xintercept = 70, linewidth = 2, color = "#FFDC00") + 
   geom_point(size = 5, pch = 21, color = "white", alpha = 0.7,
              position = position_jitter(width = 0, height = 0.2, seed = 1234)) + 
   labs(x = "Entrance exam score", y = NULL) + 
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   scale_fill_manual(values = c("#85144b", "#0074D9"), name = NULL) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed")
 ```
@@ -291,7 +291,7 @@ ggplot(tutoring, aes(x = entrance_exam, y = tutoring_text, fill = tutoring_text)
   geom_point(size = 5, pch = 21, color = "white", alpha = 0.7,
              position = position_jitter(width = 0, height = 0.2, seed = 1234)) + 
   labs(x = "Entrance exam score", y = NULL) + 
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   scale_fill_manual(values = c("#85144b", "#0074D9"), name = NULL) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed")
 ```
@@ -308,7 +308,7 @@ ggplot(tutoring, aes(x = entrance_exam, y = tutoring_text, fill = tutoring_text)
   geom_point(size = 5, pch = 21, color = "white", alpha = 0.7,
              position = position_jitter(width = 0, height = 0.2, seed = 1234)) + 
   labs(x = "Entrance exam score", y = NULL) + 
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   scale_fill_manual(values = c("#85144b", "#0074D9"), name = NULL) +
   coord_cartesian(xlim = c(70 - 6, 70 + 6)) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed")
@@ -673,7 +673,7 @@ $$y = 10 + 4x$$
 ggplot(df_params, aes(x = x_uniform, y = y_linear)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "lm", formula = y ~ x,
-              se = FALSE, size = 3, aes(color = "Linear")) +
+              se = FALSE, linewidth = 3, aes(color = "Linear")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL) +
@@ -709,7 +709,7 @@ $$y = 120 - 3x + 0.07x^2$$
 ggplot(df_params, aes(x = x_uniform, y = y_squared)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 2),
-              se = FALSE, size = 3, aes(color = "Squared")) +
+              se = FALSE, linewidth = 3, aes(color = "Squared")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL)  +
@@ -729,7 +729,7 @@ $$y = 300 - 25x + 0.65x^2 - 0.004x^3$$
 ggplot(df_params, aes(x = x_uniform, y = y_cubed)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 3),
-              se = FALSE, size = 3, aes(color = "Cubed")) +
+              se = FALSE, linewidth = 3, aes(color = "Cubed")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL) +
@@ -748,7 +748,7 @@ $$y = 10 + 4x + 50 \times \sin (\frac{x}{4})$$
 ```{r params-plot-trig, echo=FALSE, fig.width=12, fig.height=5.25, out.width="100%"}
 ggplot(df_params, aes(x = x_uniform, y = y_trig)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
-  stat_function(fun = fun_trig, size = 3, aes(color = "Trigonometric")) +
+  stat_function(fun = fun_trig, linewidth = 3, aes(color = "Trigonometric")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL) +
@@ -780,9 +780,9 @@ class: title title-4
 ggplot(df_params, aes(x = x_uniform, y = y_squared)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "lm", formula = y ~ x,
-              se = FALSE, size = 3, aes(color = "Linear")) +
+              se = FALSE, linewidth = 3, aes(color = "Linear")) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 2),
-              se = FALSE, size = 3, aes(color = "Squared")) +
+              se = FALSE, linewidth = 3, aes(color = "Squared")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL)  +
@@ -798,11 +798,11 @@ ggplot(df_params, aes(x = x_uniform, y = y_squared)) +
 ggplot(df_params, aes(x = x_uniform, y = y_cubed)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "lm", formula = y ~ x,
-              se = FALSE, size = 3, aes(color = "Linear")) +
+              se = FALSE, linewidth = 3, aes(color = "Linear")) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 2),
-              se = FALSE, size = 3, aes(color = "Squared")) +
+              se = FALSE, linewidth = 3, aes(color = "Squared")) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 3),
-              se = FALSE, size = 3, aes(color = "Cubed")) +
+              se = FALSE, linewidth = 3, aes(color = "Cubed")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL)  +
@@ -840,7 +840,7 @@ $$y = \text{who knows?}$$
 ggplot(df_params, aes(x = x_uniform, y = y_loess)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "loess", formula = y ~ x, aes(color = "Loess"), 
-              se = FALSE, size = 3) +
+              se = FALSE, linewidth = 3) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL) +
@@ -864,11 +864,11 @@ ggplot(df_params, aes(x = x_uniform, y = y_loess)) +
 ggplot(df_params, aes(x = x_uniform, y = y_loess)) +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(method = "loess", formula = y ~ x, aes(color = "Loess"), 
-              se = FALSE, size = 3) +
+              se = FALSE, linewidth = 3) +
   geom_smooth(method = "lm", formula = y ~ x,
-              se = FALSE, size = 3, aes(color = "Linear")) +
+              se = FALSE, linewidth = 3, aes(color = "Linear")) +
   geom_smooth(method = "lm", formula = y ~ poly(x, 2),
-              se = FALSE, size = 3, aes(color = "Squared")) +
+              se = FALSE, linewidth = 3, aes(color = "Squared")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL) +
   labs(x = NULL, y = NULL) +
@@ -953,11 +953,11 @@ tidy(model1) |> select(term, estimate, std.error)
 ```{r tutoring-outcome-loess, echo=FALSE, fig.width=12, fig.height=5.5, out.width="80%"}
 ggplot(tutoring, aes(x = entrance_exam, y = exit_exam, fill = tutoring_text, color = tutoring_text)) +
   geom_point(size = 4, pch = 21, color = "white", alpha = 0.25) + 
-  geom_vline(xintercept = 70, size = 2, color = "#FFDC00") + 
+  geom_vline(xintercept = 70, linewidth = 2, color = "#FFDC00") + 
   geom_smooth(data = filter(tutoring, entrance_exam <= 70),
-              method = "loess", size = 2, show.legend = FALSE) +
+              method = "loess", linewidth = 2, show.legend = FALSE) +
   geom_smooth(data = filter(tutoring, entrance_exam > 70),
-              method = "loess", size = 2, show.legend = FALSE) +
+              method = "loess", linewidth = 2, show.legend = FALSE) +
   labs(x = "Entrance exam score", y = "Exit exam score") + 
   scale_fill_manual(values = c("#85144b", "#0074D9"), name = NULL) +
   scale_color_manual(values = c("#85144b", "#0074D9")) +
@@ -1043,7 +1043,7 @@ plot_bw5 <- ggplot(df_bandwidths, aes(x = x, y = y_shifted)) +
            xmin = 10 - 5,  xmax = 10 + 5) +
   geom_point(aes(fill = bw5), size = 3, pch = 21, alpha = 0.5, color = "white") + 
   geom_vline(xintercept = 10) +
-  scale_fill_manual(values = c("grey40", "#FF851B"), guide = FALSE) +
+  scale_fill_manual(values = c("grey40", "#FF851B"), guide = "none") +
   labs(x = NULL, y = NULL, title = "Bandwidth = 5") + 
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
   theme(plot.title = element_text(face = "bold"))
@@ -1053,7 +1053,7 @@ plot_bw25 <- ggplot(df_bandwidths, aes(x = x, y = y_shifted)) +
            xmin = 10 - 2.5,  xmax = 10 + 2.5) +
   geom_point(aes(fill = bw2_5), size = 3, pch = 21, alpha = 0.5, color = "white") + 
   geom_vline(xintercept = 10) +
-  scale_fill_manual(values = c("grey40", "#FF851B"), guide = FALSE) +
+  scale_fill_manual(values = c("grey40", "#FF851B"), guide = "none") +
   labs(x = NULL, y = NULL, title = "Bandwidth = 2.5") + 
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
   theme(plot.title = element_text(face = "bold"))
@@ -1109,10 +1109,10 @@ tri <- function(x) (abs(x) < 1) * (1 - abs(x))
 epan <- function(x) (abs(x) < 1) * 0.75 * (1 - x^2)
 
 ggplot(data = tibble(x = seq(-1.25, 1.25, 0.1)), aes(x = x)) + 
-  geom_vline(xintercept = 0, size = 1, color = "grey40") +
-  stat_function(fun = rec, aes(color = "Uniform"), size = 3) + 
-  stat_function(fun = tri, aes(color = "Triangular"), size = 3) +
-  stat_function(fun = epan, aes(color = "Epanechnikov"), size = 3) +
+  geom_vline(xintercept = 0, linewidth = 1, color = "grey40") +
+  stat_function(fun = rec, aes(color = "Uniform"), linewidth = 3) + 
+  stat_function(fun = tri, aes(color = "Triangular"), linewidth = 3) +
+  stat_function(fun = epan, aes(color = "Epanechnikov"), linewidth = 3) +
   scale_color_manual(values = c("Uniform" = "#FF851B", 
                                 "Triangular" = "#0074D9", 
                                 "Epanechnikov" = "#85144b"), 
@@ -1148,7 +1148,7 @@ ggplot(df_kernels_long, aes(x = x, y = y)) +
   geom_vline(xintercept = 0) +
   scale_size_continuous(range = c(2, 10)) +
   scale_fill_viridis_c(option = "plasma", name = "Weight   ", limits = c(0, 1)) +
-  guides(size = FALSE, fill = guide_colorbar(barwidth = 20)) +
+  guides(size = "none", fill = guide_colorbar(barwidth = 20)) +
   facet_wrap(vars(name)) +
   labs(x = NULL, y = NULL) + 
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
@@ -1189,26 +1189,26 @@ class: title title-4
 
 ```{r params-plot-parametric-effects, echo=FALSE, fig.width=12, fig.height=6.5, out.width="100%"}
 ggplot(df_params, aes(x = x_uniform, y = y_cubed_effect)) +
-  geom_vline(xintercept = 75, size = 1, linetype = "21") +
+  geom_vline(xintercept = 75, linewidth = 1, linetype = "21") +
   geom_point(size = 5, pch = 21, color = "white", fill = "black", alpha = 0.5) +
   geom_smooth(data = filter(df_params, x_uniform < 75),
               method = "lm", formula = y ~ x,
-              se = FALSE, size = 3, aes(color = "Linear")) +
+              se = FALSE, linewidth = 3, aes(color = "Linear")) +
   geom_smooth(data = filter(df_params, x_uniform >= 75),
               method = "lm", formula = y ~ x,
-              se = FALSE, size = 3, aes(color = "Linear")) +
+              se = FALSE, linewidth = 3, aes(color = "Linear")) +
   geom_smooth(data = filter(df_params, x_uniform < 75),
               method = "lm", formula = y ~ poly(x, 2),
-              se = FALSE, size = 3, aes(color = "Squared")) +
+              se = FALSE, linewidth = 3, aes(color = "Squared")) +
   geom_smooth(data = filter(df_params, x_uniform >= 75),
               method = "lm", formula = y ~ poly(x, 2),
-              se = FALSE, size = 3, aes(color = "Squared")) +
+              se = FALSE, linewidth = 3, aes(color = "Squared")) +
   geom_smooth(data = filter(df_params, x_uniform < 75),
               method = "lm", formula = y ~ poly(x, 3),
-              se = FALSE, size = 3, aes(color = "Cubed")) +
+              se = FALSE, linewidth = 3, aes(color = "Cubed")) +
   geom_smooth(data = filter(df_params, x_uniform >= 75),
               method = "lm", formula = y ~ poly(x, 3),
-              se = FALSE, size = 3, aes(color = "Cubed")) +
+              se = FALSE, linewidth = 3, aes(color = "Cubed")) +
   scale_color_manual(values = line_colors, breaks = names(line_colors), 
                      labels = map(line_colors_df$formula, TeX), name = NULL)  +
   labs(x = NULL, y = NULL) +
@@ -1228,16 +1228,16 @@ ggplot(df_bandwidths, aes(x = x, y = y_shifted)) +
   geom_vline(xintercept = 10) +
   geom_smooth(data = filter(df_bandwidths, x < 10), 
               method = "lm", formula = y ~ x,
-              size = 3, se = FALSE, aes(color = "Linear")) +
+              linewidth = 3, se = FALSE, aes(color = "Linear")) +
   geom_smooth(data = filter(df_bandwidths, x >= 10), 
               method = "lm", formula = y ~ x,
-              size = 3, se = FALSE, aes(color = "Linear")) +
+              linewidth = 3, se = FALSE, aes(color = "Linear")) +
   geom_smooth(data = filter(df_bandwidths, x < 10 & x > 5),
               method = "lm", formula = y ~ x,
-              size = 3, se = FALSE, aes(color = "Linear (bw = 5)")) +
+              linewidth = 3, se = FALSE, aes(color = "Linear (bw = 5)")) +
   geom_smooth(data = filter(df_bandwidths, x >= 10 & x < 15), 
               method = "lm", formula = y ~ x,
-              size = 3, se = FALSE, aes(color = "Linear (bw = 5)")) +
+              linewidth = 3, se = FALSE, aes(color = "Linear (bw = 5)")) +
   scale_color_manual(values = bw_line_colors, breaks = names(bw_line_colors), name = NULL) +
   labs(x = NULL, y = NULL) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
@@ -1355,8 +1355,8 @@ plot_poly <- rd_binned_all |>
 ggplot(plot_binned, aes(x = rdplot_mean_bin, y = rdplot_mean_y)) +
   geom_point(size = 5, pch = 21, color = "white", alpha = 0.7,
              aes(fill = rdplot_mean_bin <= 0)) +
-  geom_vline(xintercept = 0, size = 1, linetype = "21") +
-  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = FALSE) +
+  geom_vline(xintercept = 0, linewidth = 1, linetype = "21") +
+  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = "none") +
   labs(x = NULL, y = NULL) +
   facet_wrap(vars(letter), nrow = 1) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
@@ -1377,12 +1377,12 @@ ggplot(plot_binned, aes(x = rdplot_mean_bin, y = rdplot_mean_y)) +
              aes(fill = rdplot_mean_bin <= 0)) +
   geom_line(data = filter(plot_poly, rdplot_x < 0), 
             aes(x = rdplot_x, y = rdplot_y),
-            color = "black", size = 3) +
+            color = "black", linewidth = 3) +
   geom_line(data = filter(plot_poly, rdplot_x > 0), 
             aes(x = rdplot_x, y = rdplot_y),
-            color = "black", size = 3) +
-  geom_vline(xintercept = 0, size = 1, linetype = "21") +
-  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = FALSE) +
+            color = "black", linewidth = 3) +
+  geom_vline(xintercept = 0, linewidth = 1, linetype = "21") +
+  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = "none") +
   labs(x = NULL, y = NULL) +
   facet_wrap(vars(letter), nrow = 1) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
@@ -1403,12 +1403,12 @@ ggplot(plot_binned, aes(x = rdplot_mean_bin, y = rdplot_mean_y)) +
              aes(fill = rdplot_mean_bin <= 0)) +
   geom_line(data = filter(plot_poly, rdplot_x < 0), 
             aes(x = rdplot_x, y = rdplot_y),
-            color = "black", size = 3) +
+            color = "black", linewidth = 3) +
   geom_line(data = filter(plot_poly, rdplot_x > 0), 
             aes(x = rdplot_x, y = rdplot_y),
-            color = "black", size = 3) +
-  geom_vline(xintercept = 0, size = 1, linetype = "21") +
-  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = FALSE) +
+            color = "black", linewidth = 3) +
+  geom_vline(xintercept = 0, linewidth = 1, linetype = "21") +
+  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = "none") +
   labs(x = NULL, y = NULL) +
   facet_wrap(vars(stats), nrow = 1) +
   theme_bw(base_size = 28, base_family = "Fira Sans Condensed") +
@@ -1438,12 +1438,12 @@ ggplot(filter(plot_binned, letter == "C"),
              aes(fill = rdplot_mean_bin <= 0)) +
   geom_line(data = filter(plot_poly, rdplot_x < 0, letter == "C"), 
             aes(x = rdplot_x, y = rdplot_y),
-            color = "black", size = 1.5) +
+            color = "black", linewidth = 1.5) +
   geom_line(data = filter(plot_poly, rdplot_x > 0, letter == "C"), 
             aes(x = rdplot_x, y = rdplot_y),
-            color = "black", size = 1.5) +
-  geom_vline(xintercept = 0, size = 1, linetype = "21") +
-  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = FALSE) +
+            color = "black", linewidth = 1.5) +
+  geom_vline(xintercept = 0, linewidth = 1, linetype = "21") +
+  scale_fill_manual(values = c("#0074D9", "#FF4136"), guide = "none") +
   labs(x = NULL, y = NULL) +
   facet_wrap(vars(stats), nrow = 1) +
   theme_bw(base_size = 16, base_family = "Fira Sans Condensed") +
@@ -1521,7 +1521,7 @@ thing1 <- plot1$Estplot +
   geom_vline(xintercept = 0) +
   labs(x = "Running variable", y = "Density",
        title = "Manipulation") + 
-  guides(color = FALSE, linetype = FALSE) +
+  guides(color = "none", linetype = "none") +
   theme_bw(base_size = 13, base_family = "Fira Sans Condensed") +
   theme(plot.title = element_text(face = "bold"),
         panel.grid = element_blank())
@@ -1530,7 +1530,7 @@ thing2 <- plot2$Estplot +
   geom_vline(xintercept = 0) +
   labs(x = "Running variable", y = "Density",
        title = "No manipulation") + 
-  guides(color = FALSE, linetype = FALSE) +
+  guides(color = "none", linetype = "none") +
   theme_bw(base_size = 13, base_family = "Fira Sans Condensed") + 
   theme(plot.title = element_text(face = "bold"),
         panel.grid = element_blank())
@@ -1562,7 +1562,7 @@ thing1 + thing2
 
 ```{r tutoring-sharp, echo=FALSE, fig.width=12, fig.height=5.5, out.width="100%"}
 ggplot(tutoring, aes(x = entrance_exam, y = tutoring_text, fill = entrance_exam <= 70)) +
-  geom_vline(xintercept = 70, size = 2, color = "#FFDC00") + 
+  geom_vline(xintercept = 70, linewidth = 2, color = "#FFDC00") + 
   geom_point(size = 5, pch = 21, color = "white", alpha = 0.7,
              position = position_jitter(width = 0, height = 0.2, seed = 1234)) + 
   labs(x = "Entrance exam score", y = NULL, fill = "Entrance exam ≥ 70") + 
@@ -1582,7 +1582,7 @@ ggplot(tutoring, aes(x = entrance_exam, y = tutoring_text, fill = entrance_exam 
 
 ```{r tutoring-fuzzy, echo=FALSE, fig.width=12, fig.height=5.5, out.width="100%"}
 ggplot(tutoring, aes(x = entrance_exam, y = tutoring_fuzzy_text, fill = entrance_exam <= 70)) +
-  geom_vline(xintercept = 70, size = 2, color = "#FFDC00") + 
+  geom_vline(xintercept = 70, linewidth = 2, color = "#FFDC00") + 
   geom_point(size = 5, pch = 21, color = "white", alpha = 0.7,
              position = position_jitter(width = 0, height = 0.2, seed = 1234)) + 
   labs(x = "Entrance exam score", y = NULL, fill = "Entrance exam ≥ 70") + 

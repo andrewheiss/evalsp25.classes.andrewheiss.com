@@ -54,6 +54,16 @@ render_xaringan <- function(slide_path) {
 #
 # Slides for sessions 10 and 14 are huge, so use chromote to convert them
 # outside of this targets pipeline instead
+#
+# But that doesn't work inside renv or targets for whatever reasons, so this has
+# to be done manually from a different non-renv session:
+#
+# renderthis::to_pdf(
+#   from = "~/Sites/courses/evalsp25/slides/10-slides.html", 
+#   to = "~/Sites/courses/evalsp25/slides/10-slides.pdf", 
+#   complex_slides = TRUE
+# )
+
 xaringan_to_pdf <- function(slide_path) {
   path_sans_ext <- tools::file_path_sans_ext(slide_path)
 
@@ -70,7 +80,9 @@ xaringan_to_pdf <- function(slide_path) {
   }
 
   if (path_sans_ext %in% c("slides/10-slides",
-                           "slides/14-slides")) {
+                           "slides/14-slides", 
+                           "slides/07-slides",
+                           "slides/08-slides")) {
     complex <- FALSE
   } else {
     renderthis::to_pdf(
