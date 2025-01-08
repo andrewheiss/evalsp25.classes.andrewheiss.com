@@ -22,6 +22,8 @@ slide_details <- tibble::tribble(
 ## Readings
 
 - The [syllabus](/syllabus.qmd), [content](/content/index.qmd), [examples](/example/index.qmd), and [assignments](/assignment/index.qmd) pages for this class
+- {{< fa arrow-up-right-from-square >}} [AI, LLMs, and BS](/resource/ai-bs.qmd)
+- {{< fa file-pdf >}} Michael Townsen Hicks, James Humphries, and Joe Slater, ["ChatGPT Is Bullshit"](https://doi.org/10.1007/s10676-024-09775-5) [@HicksHumphriesSlater:2024]
 - {{< fa book >}} Chapter 1 in *Impact Evaluation in Practice* [@wb-eval]
 - {{< fa book >}} Chapters 1 and 2 in *The Effect* [@Huntington-Klein:2021]
 - {{< fa brands youtube >}} DJ Patil, ["What Makes a Radical and Revolutionary Technology?"](https://www.youtube.com/watch?v=UOoMzaWOQJA) 
