@@ -422,14 +422,14 @@ That should magically work.
 
 ```{r warning=FALSE, message=FALSE}
 library(AER)  # For ivreg()
-library(ivpack)  # For IV diagnostics like Anderson-Rubin causal effects
+# library(ivpack)  # For IV diagnostics like Anderson-Rubin causal effects
 
 # You have to include x = TRUE so that this works with diagnostic functions
 model <- ivreg(wage ~ education | education_dad + education_mom,
                data = ed_real, x = TRUE)
 
 # AR 95% confidence interval
-anderson.rubin.ci(model)
+# anderson.rubin.ci(model)
 ```
 
 Based on this confidence interval, given the strength (or weakness) of the instruments, the IV estimate could be as low as 75.9 and as high as 152, which is a fairly big range around the \$112 effect we found. Neat.
