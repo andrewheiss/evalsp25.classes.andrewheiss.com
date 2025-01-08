@@ -29,8 +29,9 @@ slide_details <- tibble::tribble(
 
 ### DAGs
 
-- {{< fa file-pdf >}} Julia M. Rohrer, "Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data" [@Rohrer:2018] This will be posted on iCollege.
-- {{< fa file-pdf >}} Section 2 only (pp. 4–11) from Julian Schuessler and Peter Selb, "Graphical Causal Models for Survey Inference." [@SchuesslerSelb:2019] [The PDF is available at SocArXiv.](https://osf.io/preprints/socarxiv/hbg3m/)
+- {{< fa file-pdf >}} Julia M. Rohrer, "Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data" [@Rohrer:2018]. This will be posted on iCollege.
+- {{< fa file-pdf >}} Lucy D’Agostino McGowan, Travis Gerke, and Malcolm Barrett, ["Causal inference is not just a statistics problem"](https://doi.org/10.1080/26939169.2023.2276446) [@DAgostinoMcGowanGerkeBarrett:2024]
+- {{< fa file-pdf >}} Zachary M. Laubach et al., ["A Biologist’s Guide to Model Selection and Causal Inference"](https://doi.org/10.1098/rspb.2020.2815) [@LaubachMurrayHoke:2021]. This will be posted on iCollege.
 - {{< fa book >}} Chapters 6 and 7 in *The Effect* [@Huntington-Klein:2021]
 
 ### DAG example page
@@ -57,6 +58,7 @@ slide_frame("/slides/04-slides.html")
 ```{r show-youtube-list, echo=FALSE, results="asis"}
 youtube_list(slide_details, playlist_id)
 ```
+
 
 :::: {.content-hidden}
 
