@@ -4,7 +4,7 @@ title: "Assignments"
 
 The main goals of this class are to help you design, critique, code, and run rigorous, valid, and feasible evaluations of public sector programs. Each type of assignment in this class is designed to help you achieve one or more of these goals.
 
-## Weekly check in
+## Weekly check-in
 
 Each week you'll submit a list of three most interesting and three most unclear things from the readings. ([See the complete instructions and details here](/assignment/weekly-check-in.qmd)).
 
