@@ -479,7 +479,7 @@ So actually I lied. We're *not* all done yet. The IPW model that we ran gives us
 
 We can actually see underestimation in the side-by-side table of results up above: the IPW model's standard error is `r round(ipw_results$net_true$std.error, 2)`, resulting in a confidence interval of `r ipw_results$net_true$conf`, while the matching + weights model has a similar point estimate (`r round(matching_results$net_true$estimate, 2)`) but a bigger standard error (`r round(matching_results$net_true$std.error, 2)`) and a wider confidence interval of `r matching_results$net_true$conf`.
 
-The (arguably) most accurate way to include the uncertainty of the treatment model in the outcome model is to rely on brute force simulation (just like we [did with Zilch!](/resource/zilch.qmd)) to estimate the causal effect for lots and lots of different models and then combine them into a single value. With our Zilch simulations, we rerolled our dice thousands of times. With this data, however, we can't go out and collect new samples of mosquito net use—we only have one set of data to work with.
+The (arguably) most accurate way to include the uncertainty of the treatment model in the outcome model is to rely on brute force simulation to estimate the causal effect for lots and lots of different models and then combine them into a single value. With this data, we can't go out and collect new samples of mosquito net use—we only have one set of data to work with.
 
 So instead of collecting new data, we cheat. 
 
