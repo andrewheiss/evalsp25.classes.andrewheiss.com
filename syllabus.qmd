@@ -5,14 +5,7 @@ title: Syllabus
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
 library(dplyr)
 library(tibble)
-library(gt)
-library(gtExtras)
-
-opts_theme <- function(x) {
-  x |>
-    opt_table_font(font = c("Barlow", "serif")) |>
-    tab_options(column_labels.font.weight = "bold")
-}
+library(tinytable)
 ```
 
 :::: {.grid .course-details .course-details-smaller}
@@ -59,6 +52,7 @@ Specifically, you'll be able to:
 - Explain the theory, research design, methods, and results of evaluations to all types of stakeholders, from highly trained econometricians to the general public
 - Share your analyses and data with the public
 - Identify ethical issues and limits in data science and program evaluation
+- Feel comfortable with R
 - Become curious and confident in consuming and producing evaluations
 
 
@@ -307,11 +301,14 @@ assignments <- tribble(
   14 * 10,   "Weekly check-ins (14 × 10)", "Check-ins",
   9 * 30,    "Problem sets (9 × 30)", "Assignments",
   4 * 30,    "Evaluation assignments (4 × 30)", "Assignments",
+  30,        "#TidyTuesday", "Assignments",
   100,       "Exam 1", "Exams",
   100,       "Exam 2", "Exams",
   200,       "Final project", "Projects"
 ) |>
-  mutate(Percent = Points / sum(Points))
+  mutate(Percent = Points / sum(Points)) |> 
+  select(Group, Assignment, Points, Percent) |> 
+  janitor::adorn_totals(where = "row")
 
 grading <- tribble(
   ~Grade, ~Range, ~Grade1, ~Range1,
@@ -326,38 +323,23 @@ grading <- tribble(
 
 ```{r show-assignments-table, echo=FALSE}
 assignments |>
-  select(Assignment, Points, Percent, Group) |>
-  group_by(Group) |> 
-  gt() |> 
-  sub_missing(missing_text = "---") |> 
-  grand_summary_rows(
-    columns = c(Points, Percent), 
-    fns = list(Total ~ sum(.)),
-    fmt = list(Total ~ fmt_percent(., columns = Percent, decimals = 0))
-  ) |> 
-  fmt_percent(columns = Percent, decimals = 1) |> 
-  tab_style(
-    locations = list(cells_grand_summary(), cells_stub_grand_summary()),
-    style = cell_text(weight = "bold")
-  ) |> 
-  opts_theme() |> 
-  opt_horizontal_padding(2) |>
-  tab_options(
-    row_group.as_column = TRUE,
-    quarto.disable_processing = TRUE
-  )
+  select(-Group) |>
+  tt() |> 
+  group_tt(i = assignments$Group) |> 
+  style_tt(i = c(1, 3, 7, 10), bold = TRUE, line = "b", line_width = 0.05, line_color = "#d3d8dc") |> 
+  style_tt(i = 12, line = "t", line_width = 0.1, line_color = "#d3d8dc") |> 
+  style_tt(i = 12:13, bold = TRUE) |> 
+  format_tt(j = 3, fn = scales::label_percent()) |> 
+  format_tt(escape = TRUE)
 ```
 
 ```{r show-grades-table, echo=FALSE}
 grading |>
-  gt() |> 
-  cols_label(Grade1 = "Grade", Range1 = "Range") |> 
-  cols_align(align = "left", columns = c(Grade, Grade1)) |> 
-  cols_align(align = "center", columns = c(Range, Range1)) |> 
-  opts_theme() |> 
-  opt_horizontal_padding(3) |> 
-  gt_add_divider(columns = Range, style = "dashed", weight = px(1)) |> 
-  tab_options(quarto.disable_processing = TRUE)
+  setNames(c("Grade", "Range", "Grade", "Range")) |> 
+  tt() |> 
+  style_tt(line = "b", line_width = 0.05, line_color = "#d3d8dc") |> 
+  style_tt(i = 1, line = "t", line_width = 0.1, line_color = "#d3d8dc") |> 
+  style_tt(j = 2, bootstrap_css = "border-right: 0.1em dashed #d3d8dc;")
 ```
 
 
