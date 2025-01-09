@@ -114,8 +114,10 @@ website:
             - assignment/index.qmd
         - section: "Other projects"
           contents:
-            - assignment/final-project.qmd
+            - text: "#TidyTuesday"
+              file: assignment/tidy-tuesday.qmd
             - assignment/weekly-check-in.qmd
+            - assignment/final-project.qmd
         - section: "Problem sets"
           contents:
             - assignment/01-problem-set.qmd

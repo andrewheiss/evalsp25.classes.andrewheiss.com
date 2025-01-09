@@ -1,0 +1,43 @@
+---
+title: "#TidyTuesday"
+---
+
+The objectives of this class include "Become curious and confident in consuming and producing evaluations", "Feel comfortable with R", and "Share your analyses and data with the public." To help you with this, you will participate in a #TidyTuesday challenge.
+
+## What is #TidyTuesday?
+
+One of the reasons R is so popular is because the R community is exceptionally generous and open and sharing. Beginning in 2018, the now-named [Data Science Learning Community (DSLC)](https://dslc.io/) has posted a new dataset every week with a shared community challenge: do something with the data and share it online. This community data exploring adventure has come to be known as [TidyTuesday](https://github.com/rfordatascience/tidytuesday).
+
+The really neat thing about this challenge is that it's open to everyone. Brand new beginners will download the data and make a bar chart; advanced R developers will download the data and build [some sort of complex model](https://juliasilge.com/blog/star-trek/). It doesn't matter how simple or complex your final product is—all that matters is that you do something neat with it and share it with the community.
+
+The topics of these datasets vary *wildly*! Here are some fasinating ones from the past:
+
+- [Recreate an original W. E. B. DuBois data visualization](https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-02-16/readme.md)
+- [Every human–computer interaction *in Star Trek: The Next Generation*](https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-08-17/readme.md)
+- [Killer whale encounters](https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-15/readme.md)
+- [Ramen ratings](https://github.com/rfordatascience/tidytuesday/blob/main/data/2019/2019-06-04)
+- [Democracy, coups, and political institutions](https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-11-05/readme.md)
+
+## What you need to do
+
+At some point before the end of the semester, you'll need to participate in a TidyTuesday challenge. Here's what that involves:
+
+1. New data is posted online every Monday morning [at the project's GitHub page](https://github.com/rfordatascience/tidytuesday/blob/main/README.md#datasets) and at [Bluesky](https://bsky.app/profile/jonthegeek.com), [Mastodon](https://fosstodon.org/@jonthegeek), and [LinkedIn](https://www.linkedin.com/in/lgibson7/). Watch as new datasets are posted over the semester and when you see something interesting, **download** it and **play** with it! You can also do a (recent) past dataset if you want, too, but ideally you should try to do the current dataset. Each dataset has some starter R code for downloading and cleaning up the data.
+2. **Expore** the data to see what's in there. Experiment with different relationships or models or plot types.
+3. **Create** a visualization, a model, a tutorial, or something interesting with the data.
+4. **Share** your output and the code used to generate it on social media with the #TidyTuesday hashtag. Most people share these on [Bluesky](https://bsky.app/hashtag/TidyTuesday), [LinkedIn](https://www.linkedin.com/feed/hashtag/?keywords=tidytuesday), and [Mastodon](https://fosstodon.org/tags/TidyTuesday) (and on former-Twitter, though the bulk of data science Twitter has fled that platform since November 2022). Some share on Instagram too (like [this](https://www.instagram.com/p/CZk7dKPr92g/) and [this](https://www.instagram.com/p/CE9Moo2gj6d/)), but [#TidyTuesday on Instagram](https://www.instagram.com/explore/tags/tidytuesday/) is mostly related to cleaning.
+
+## How you'll be graded
+
+On iCollege, you'll submit two things:
+
+1. A rendered Quarto document with your code and output
+2. A link to wherever you've shared your TidyTuesday creation (Bluesky, LinkedIn, Instagram, a webpage or blog, or whatever).
+
+You need to submit this **before April 24, 2025** (the last day of class). I recommend *not* waiting until the last week to do it.
+
+You'll be graded based on the check system we use for all other assignments:
+
+- ✔+: (*33 points (110%) in gradebook*) Creation is exceptional and goes beyond what we've covered in class (i.e. you use it to explore a new package or new technique). I will not assign these often.
+- ✔: (*30 points (100%) in gradebook*) You do something interesting and neat with your creation using tools and techniques learned in this class. This is the expected level of performance.
+- ✔−: (*15 points (50%) in gradebook*) You do bare minimum work with your creation.
