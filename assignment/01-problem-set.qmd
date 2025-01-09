@@ -11,7 +11,7 @@ knitr::opts_chunk$set(fig.align = "center")
 
 1. Go the the example page for this week, ["Welcome to R, RStudio, and the tidyverse"](/example/rstudio-tidyverse.qmd), and work through the different primers and videos in the four parts of the page.
 
-    It seems like there's a lot on the page, but they're short and go fairly quickly (especially as you get the hang of the syntax). Also, **I have no way of seeing what you do or what you get wrong or right, and that's totally fine!** If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!
+   It seems like there's a lot on the page, but they're short and go fairly quickly (especially as you get the hang of the syntax). Also, **I have no way of seeing what you do or what you get wrong or right, and that's totally fine!** If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!
 
 
 ## Task 2: Make an RStudio Project
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(fig.align = "center")
 
 3. Download this CSV file and place it in that folder:
 
-    - [{{< fa file-csv >}} `cars.csv`](/files/data/package_data/cars.csv)
+   - [{{< fa file-csv >}} `cars.csv`](/files/data/package_data/cars.csv)
 
 4. In RStudio, go to "File" > "New File…" > "Quarto Document…" and click "OK" in the dialog without changing anything.
 
