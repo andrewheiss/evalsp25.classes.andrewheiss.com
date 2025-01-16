@@ -2,24 +2,17 @@
 title: "News & FAQs"
 listing:
   id: "news-table"
-  contents: "."
+  contents: ../data/news.yml
+  template: ../html/news/news-listing.ejs
   sort: "date desc"
   page-size: 100
-  type: table
-  table-hover: true
-  fields: [date, title, categories]
-  filter-ui: [title, date, categories]
-  sort-ui: true
-  date-format: "dddd MMMM D, YYYY [at] h:mm A"
-  feed: 
-    title: "Program Evaluation (PMAP 8521; Spring 2025) News"
-    description: "Updates and FAQs for PMAP 8521 at Georgia State University"
-  categories: false
+  date-format: "MMMM D, YYYY [at] h:mm A"
+  categories: numbered
 page-layout: full
-sidebar: false
 toc: false
 format:
   html:
+    html-table-processing: none
     # https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/html/templates/title-block.html
     template-partials:
       - ../html/news-default/title-block.html
@@ -27,7 +20,7 @@ format:
 
 ```{r get-vars, include=FALSE}
 base_url <- yaml::read_yaml(here::here("_quarto.yml"))$website$`site-url`
-feed_name <- "news/index.xml"
+feed_name <- "news_feed.xml"
 feed_url <- paste0(base_url, "/", feed_name)
 ```
 

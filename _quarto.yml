@@ -1,5 +1,6 @@
 project:
   type: website
+  pre-render: data/extract-news-headings.R
   render:
     - "*.qmd"
     - "!slides/"

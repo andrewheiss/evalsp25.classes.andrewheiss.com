@@ -1,0 +1,56 @@
+# This file is generated with data/extract-news-headings.R; do not edit by hand
+
+- title: "The 30-minute rule and how to ask for help"
+  categories:
+  - "advice"
+  date_actual: '1737023460'
+  date: "2025-01-16T10:31:00"
+  href: "/news/2025-01-16_reaching-out-when-stuck.html"
+  headings: []
+- title: "Building community"
+  categories:
+  - "advice"
+  date_actual: '1737022620'
+  date: "2025-01-16T10:17:00"
+  href: "/news/2025-01-16_building-community.html"
+  headings:
+  - id: "class-community"
+    text: "Class community"
+  - id: "online-community"
+    text: "Online community"
+- title: "Copy, paste, and tweak"
+  categories:
+  - "advice"
+  date_actual: '1737022080'
+  date: "2025-01-16T10:08:00"
+  href: "/news/2025-01-16_copy-paste-tweak.html"
+  headings: []
+- title: "Plan for the first day of class"
+  categories:
+  - "getting started"
+  date_actual: '1736991300'
+  date: "2025-01-16T01:35:00"
+  href: "/news/2025-01-16_first-day-of-class.html"
+  headings: []
+- title: "Announcements and updates"
+  categories:
+  - "getting started"
+  date_actual: '1736376480'
+  date: "2025-01-08T22:48:00"
+  href: "/news/2025-01-08_announcements-updates.html"
+  headings: []
+- title: "Important R stuff"
+  categories:
+  - "getting started"
+  date_actual: '1736371020'
+  date: "2025-01-08T21:17:00"
+  href: "/news/2025-01-08_important-r-stuff.html"
+  headings: []
+- title: "Welcome to class!"
+  categories:
+  - "getting started"
+  date_actual: '1736368860'
+  date: "2025-01-08T20:41:00"
+  href: "/news/2025-01-08_welcome.html"
+  headings: []
+

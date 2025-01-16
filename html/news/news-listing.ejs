@@ -1,0 +1,44 @@
+```{=html}
+<div class="news news-table">
+<table class="quarto-listing-table table table-hover">
+    <thead>
+        <tr>
+            <th style="width: 20% !important">Date</th>
+            <th style="width: 60% !important">Title</th>
+            <th style="width: 20% !important">Categories</th>
+        </tr>
+    </thead>
+    <tbody class="list">
+        <% for (const item of items) { %>
+        <tr class="announcement" <%=metadataAttrs(item) %>>
+            <td class="announcement-date">
+                <%= item.date %>
+            </td>
+
+            <td>
+                <a href="<%- item.href %>"><strong><%= item.title %></strong></a>
+
+                <% if (item.headings) { %>
+                <ul class="headings list">
+                <% for (const h of item.headings) { %>
+                    <li class="list-item"><a href="<%- item.href %>#<%= h.id %>"><%= h.text %></a></li>
+                <% } %>
+                </ul>
+                <% } %>
+            </td>
+
+            <td>
+            <% if (item.categories) { %>
+            <div class="item-categories listing-categories">
+                <% for (const category of item.categories) { %>
+                    <a class="item-category listing-category" href="#category=<%= category %>"><%= category %></a>
+                <% } %>
+            </div>
+            <% } %>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+</div>
+```

@@ -1,0 +1,15 @@
+---
+title: "Program Evaluation (Spring 2025 PMAP 8521) News"
+search: false
+listing:
+  sort: "date desc"
+  feed: 
+    title: "Program Evaluation (Spring 2025 PMAP 8521) News"
+    description: "Updates and FAQs for PMAP 8521 at Georgia State University, Spring 2025"
+    items: 100
+    type: metadata
+    language: en
+  contents:
+    - "news/*.qmd"
+    - "!news/index.qmd"
+---
