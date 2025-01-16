@@ -1,5 +1,5 @@
 Version: 1.0
-ProjectId: 2fa446c2-c520-4a82-8ff9-6b176af2987f
+ProjectId: e62991f3-f4c7-41f6-ad57-8a4559de52c9
 
 RestoreWorkspace: No
 SaveWorkspace: No
@@ -14,3 +14,5 @@ RnwWeave: Sweave
 LaTeX: XeLaTeX
 
 AutoAppendNewline: Yes
+
+UseNativePipeOperator: Yes

@@ -1,0 +1,68 @@
+---
+title: "Title goes here"
+author: "Ada Lovelace"
+date: "January 16, 2025"
+format:
+  pdf: 
+    number-sections: true
+  html: default
+  docx: default
+abstract: |
+  Abstract goes here
+---
+
+An average, or mean, represents the central tendency of a set of data, offering a single value that summarizes the data. The mathematical formula for the mean of a dataset $\{x_1, x_2, \dots, x_n\}$ is:
+
+$$
+\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+$$
+
+Here, $\bar{x}$ represents the mean, $n$is the number of values in the dataset, and $x_i$ are the individual data points.
+
+To compute the mean of a dataset:
+
+Calculate the Sum of All Values: Compute $\sum_{i=1}^n x_i$, the total of all data points.
+Count the Number of Values: Determine $n$, the total number of data points.
+Divide the Sum by the Count: Use the formula $\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$.
+
+Example: Test Scores
+
+Consider the following dataset representing a student’s test scores: $\{85, 90, 78, 92, 88\}$. To find the mean:
+
+Compute the sum of the scores:
+
+$$
+\sum_{i=1}^5 x_i = 85 + 90 + 78 + 92 + 88 = 433
+$$
+
+Count the total number of scores:
+
+$$
+n = 5
+$$
+
+Divide the sum by the number of scores:
+
+$$
+\bar{x} = \frac{433}{5} = 86.6
+$$
+
+Thus, the mean test score is 86.6.
+
+Applications of Averages
+
+Averages are crucial for summarizing and interpreting data in various fields:
+
+Education: Teachers use averages to evaluate class performance.
+Finance: Families calculate average expenses to manage budgets.
+Science: Researchers use averages to analyze experimental data.
+
+Understanding averages allows for meaningful comparisons and informed decision-making.
+
+Conclusion
+
+The mathematical concept of the average is a versatile tool in data analysis. By using the formula $\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$, you can calculate and interpret averages effectively.
+
+Here's a picture of Ada Lovelace, the fictional writer of this goofy little guide (but she was real! read more about her here)
+
+https://en.wikipedia.org/wiki/Ada_Lovelace
