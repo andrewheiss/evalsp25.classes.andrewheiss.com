@@ -56,7 +56,6 @@ slide_frame("/slides/02-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-:::: {.content-hidden}
 
 ## In-class stuff
 
@@ -70,25 +69,16 @@ Reading in grad school:
 - {{< fa file-pdf >}} Michael J. Nelson, “How to Read Journal Articles Like a Professor,” 2021, <http://mjnelson.org/Teaching/HowToRead.pdf>.
 - {{< fa file-pdf >}} The “How to Read” section in Amelia Hoover Green, “Reading and Writing in College: Ten Years of Tip Sheets in One Handy Document,” September 2021, <https://www.ameliahoovergreen.com/uploads/9/3/0/9/93091546/writing-guide.pdf>.
 
-Hands-on R materials:
+RStudio labs:
 
-- [{{< fa brands r-project >}} Posit.cloud project](https://posit.cloud/spaces/462899/content/7344112)
-- [{{< fa file-zipper >}} Project `.zip` file](/projects/01-class.zip)
-- [{{< fa file-csv >}} Gapminder data](/files/data/package_data/gapminder.csv)
-
-Live code:
-
-- [{{< fa brands r-project >}} Live code on Dropbox](https://andhs.co/live)
-
-Lab materials: 
-
+- [Posit.cloud project](https://posit.cloud/spaces/599025/content/9558596)
+- [Project `.zip` file](/projects/01-class.zip)
 - [Lab slides 1: Markdown and universal writing](/slides/01-class_01_markdown-writing.html) ([PDF](/slides/01-class_01_markdown-writing.pdf))
 - [Lab slides 2: Getting started with R and RStudio](/slides/01-class_02-getting-started.html) ([PDF](/slides/01-class_02-getting-started.pdf))
 - [Lab slides 3: Data basics](/slides/01-class_03_data-basics.html) ([PDF](/slides/01-class_03_data-basics.pdf))
 - [Lab slides 4: Visualize data with ggplot2](/slides/01-class_04_visualize-data.html) ([PDF](/slides/01-class_04_visualize-data.pdf))
 - [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
 
-::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sERjvBbJGr9mpqvtiLVPzd4
