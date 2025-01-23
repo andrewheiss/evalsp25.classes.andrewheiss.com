@@ -19,7 +19,7 @@ You need to complete the four sections listed below. Ideally you should type thi
 
 You can draw your impact theory and logic model charts by hand or with something like [Diagrams.net](https://www.diagrams.net/), [Lucidchart](https://www.lucidchart.com/pages/home), or [Creately](https://creately.com/). Export the image as a PNG, place it in the same directory as your Quarto file, and include the image with Markdown.
 
-The syntax for adding an image in Markdown is fairly simple. Importantly, **it is not R code**, so *don't* try putting it in an R chunk. Just type this:
+The syntax for adding an image in Markdown is fairly simple. Importantly, **it is not R code**, so *don't* try putting it in an R chunk. Just type this (make sure the path to the image is relative to your .qmd file—if you put the PNG in a folder named `img`, for instance, use `img/whatever.png`):
 
 ```markdown
 ![Image caption](/path/to/image.png)

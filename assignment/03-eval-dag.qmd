@@ -19,9 +19,11 @@ You need to complete the three sections listed below. Ideally you should type th
 ---
 
 
-## 1: DAG I
+## 1: DAG I(A) and I(B)
 
-Find a news article that makes a causal claim and interpret that claim by drawing an appropriate diagram. The article likely won't explain all the things the researchers controlled for, so you'll need to create an ideal DAG. What should be included in the causal process to measure the effect of X on Y? 
+- **Diagram A**: Find a news article that makes a causal claim and interpret that claim by drawing an appropriate diagram *of the claim they make* with any evidence they provide in the article. For instance, if an article says that drinking a glass of wine at night causes people to live for 10 months longer, and the study controlled for age, you'd need to have three nodes in your DAG: (1) drinking wine, (2) life expectancy, and (3) age.
+
+- **Diagram B**: The article likely won't explain all the things the researchers controlled for, so you'll need to create an ideal DAG. What else should be included in the causal process to measure the effect of X on Y? 
 
 Export the figure from dagitty and include it in your assignment, or use this code to draw the DAG with R:
 
@@ -57,24 +59,24 @@ ggdag_status(my_dag, text = FALSE, use_labels = "label", seed = 1234) +
 
 Summarize the causal claim. Describe what the authors controlled for and what else you included in the DAG. Justify the inclusion of each node (point) and connection (line) in the graph. *(≈150 words)*
 
-Identify all the frontdoor and backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? *(≈100 words)*
+Identify all backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? *(≈100 words)*
 
 
-## 2: DAG II
+## 2: DAG II(A) and II(B)
 
-Find a different news article with a causal claim and do the same thing as above. 
+Find a different news article with a causal claim and do the same thing as above.
 
-Draw and include a DAG.
+Draw and include two DAGs: what's in the article and what should be used.
 
 Summarize the causal claim. Describe what the authors controlled for and what else you included in the DAG. Justify the inclusion of each node (point) and connection (line) in the graph. *(≈150 words)*
 
-Identify all the frontdoor and backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? *(≈100 words)*
+Identify all backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? *(≈100 words)*
 
 
 ## 3: DAG for your program
 
-Identify the outcome you care most about from your final project program. Draw a DAG that shows the causal effect of your program's intervention on the outcome. 
+Identify the outcome you care most about from your final project program. Draw a DAG that shows the causal effect of your program's intervention on the outcome. **You just need one ideal DAG here.**
 
 Summarize the causal claim. Describe what needs to be controlled for and what else you included in the DAG. Justify the inclusion of each node (point) and connection (line) in the graph. *(≈150 words)*
 
-Identify all the frontdoor and backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? How might you do this with your evaluation? *(≈100 words)*
+Identify all backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? *(≈100 words)*

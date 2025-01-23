@@ -40,7 +40,7 @@ Using the concept of the "ladder of abstraction" that we discussed in class (e.g
 - Things
 - Here
 
-Narrow this list down to 3-4 key attributes. Discuss how you decided to narrow the concepts and justify why you think these attributes capture the outcome. *(≈100 words)*
+Narrow this list down to 2-3 key attributes. Discuss how you decided to narrow the concepts and justify why you think these attributes capture the outcome. *(≈100 words)*
 
 *For each of these attributes*, answer these questions:
 
@@ -160,7 +160,7 @@ Using the concept of the "ladder of abstraction" that we discussed in class (e.g
 - Things
 - Here
 
-Narrow this list down to 3-4 key attributes. Discuss how you decided to narrow the concepts and justify why you think these attributes capture the outcome. *(≈100 words)*
+Narrow this list down to 2-3 key attributes. Discuss how you decided to narrow the concepts and justify why you think these attributes capture the outcome. *(≈100 words)*
 
 *For each of these attributes*, answer these questions:
 
