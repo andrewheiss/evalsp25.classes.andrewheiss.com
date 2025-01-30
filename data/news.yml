@@ -1,5 +1,105 @@
 # This file is generated with data/extract-news-headings.R; do not edit by hand
 
+- title: "Week 2 FAQs"
+  categories:
+  - "FAQs"
+  date_actual: '1738193580'
+  date: "2025-01-29T23:33:00"
+  href: "/news/2025-01-29_faqs_week-02.html"
+  headings:
+  - id: "why-do-you-use-s-for-grades"
+    text: "Why do you use ✓s for grades?"
+  - id: "why-does-r-show-numbers-like-2.34e-8-what-do-those-mean-can-i-get-nicer-numbers"
+    text: "Why does R show numbers like <code>2.34e-8</code>? What do those mean?
+      Can I get nicer numbers?"
+  - id: "why-does-mean-both-headings-and-code-comments"
+    text: "Why does <code>#</code> mean both headings and code comments?"
+  - id: "why-do-we-sometimes-use-and-sometimes-use-to-combine-different-commands"
+    text: "Why do we sometimes use <code>|&gt;</code> and sometimes use <code>+</code>
+      to combine different commands?"
+  - id: "why-do-we-sometimes-use-and-sometimes-use"
+    text: "Why do we sometimes use <code>=</code> and sometimes use <code>==</code>?"
+  - id: "do-you-have-any-tips-for-remembering-all-the-different-functions-were-learning-there-are-so-many"
+    text: "Do you have any tips for remembering all the different functions we’re
+      learning? There are so many!"
+- title: "Week 1 tips and FAQs"
+  categories:
+  - "FAQs"
+  date_actual: '1738193220'
+  date: "2025-01-29T23:27:00"
+  href: "/news/2025-01-29_faqs_week-01.html"
+  headings:
+  - id: "whats-the-difference-between-r-markdown-and-quarto"
+    text: "What’s the difference between R Markdown and Quarto?"
+  - id: "rendered-document-format-for-icollege"
+    text: "Rendered document format for iCollege"
+  - id: "why-does-it-matter-where-we-put-files-like-cars.csv"
+    text: "Why does it matter where we put files like <code>cars.csv</code>?"
+  - id: "how-does-group_by-work-why-did-we-have-to-group-by-class-and-not-cty-and-class"
+    text: "How does <code>group_by()</code> work? Why did we have to group by <code>class</code>
+      and not <code>cty</code> and <code>class</code>?"
+  - id: "can-we-use-chatgpt-can-you-even-tell-if-we-do"
+    text: "Can we use ChatGPT? Can you even tell if we do?"
+- title: "Making cleaner, nicer tables"
+  categories:
+  - "resources"
+  date_actual: '1738190820'
+  date: "2025-01-29T22:47:00"
+  href: "/news/2025-01-29_cleaner-nicer-tables.html"
+  headings:
+  - id: "general-examples"
+    text: "General examples"
+  - id: "fancier-modelsummary"
+    text: "Fancier {modelsummary}"
+  - id: "table-and-figure-captions-and-numbering"
+    text: "Table and figure captions and numbering"
+- title: "Making cleaner, nicer Quarto documents"
+  categories:
+  - "resources"
+  date_actual: '1738190160'
+  date: "2025-01-29T22:36:00"
+  href: "/news/2025-01-29_cleaner-nicer-qmd-output.html"
+  headings:
+  - id: "render-often"
+    text: "Render often"
+  - id: "check-for-broken-code-chunks"
+    text: "Check for broken code chunks"
+  - id: "check-that-your-text-looks-okay"
+    text: "Check that your text looks okay"
+  - id: "dont-install-packages-in-your-document"
+    text: "Don’t install packages in your document"
+  - id: "clean-up-warnings-and-messages"
+    text: "Clean up warnings and messages"
+  - id: "global-chunk-options"
+    text: "Global chunk options"
+  - id: "fancy-document-settings"
+    text: "Fancy document settings"
+  - id: "chunk-names"
+    text: "Chunk names"
+- title: "Getting help more efficiently"
+  categories:
+  - "advice"
+  date_actual: '1738188840'
+  date: "2025-01-29T22:14:00"
+  href: "/news/2025-01-29_get-help-more-efficiently.html"
+  headings:
+  - id: "use-slack-in-public"
+    text: "Use Slack in public"
+  - id: "high-resolution-questions"
+    text: "High resolution questions"
+  - id: "unanswered-questions"
+    text: "Unanswered questions"
+  - id: "use-slack-threads"
+    text: "Use Slack threads"
+  - id: "calendly-webex-appointments"
+    text: "Calendly + Webex appointments"
+- title: "Zeroes and ✓−s in the gradebook"
+  categories:
+  - "course details"
+  date_actual: '1738160040'
+  date: "2025-01-29T14:14:00"
+  href: "/news/2025-01-29_zeroes-check-minuses.html"
+  headings: []
 - title: "The 30-minute rule and how to ask for help"
   categories:
   - "advice"

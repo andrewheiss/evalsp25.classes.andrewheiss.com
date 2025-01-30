@@ -1,0 +1,19 @@
+---
+title: "Zeroes and ✓−s in the gradebook"
+date: "2025-01-29T14:14"
+categories: [course details]
+---
+
+Hi everyone!
+
+You'll notice that I just updated your grades in iCollege. In general you're all doing great!
+
+**If you received a ✓− on any of the exercises, you can resubmit them for a higher grade.**
+
+A few of you have noticed that you now have 0s for assignments that you haven’t turned in yet. **Don’t worry!** I just had iCollege update all the missing grades to 0 for the sake of more accurate grade calculation. 
+
+Before today, if you checked your grades on iCollege, you’d be failing even if you turned in everything and got 100% on everything. That’s because the denominator was 960 points—the total number of points you can get this semester. But that’s inaccurate—we've only done problem set 1 and weekly check-ins 1 and 2, so if you got the maximum score on those, you'd have a 50/960, or a 5% F. That's not useful information! There’s no use including everything else in the denominator for now.
+
+So now you should be able to see what your current grade is with the correct denominator (i.e. the points for everything from the beginning of the semester up to today, which is just 50 points), meaning the percentages you see are more accurate.
+
+If you have a 0, don’t worry! Once you turn in past exercises the 0 will get replaced with the actual score. The 0 is just a mathematical quirk to get iCollege to cooperate.

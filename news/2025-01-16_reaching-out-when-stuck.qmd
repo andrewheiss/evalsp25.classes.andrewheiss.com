@@ -11,7 +11,7 @@ You **absolutely** can (and should) reach out when stuck. I'm super responsive o
 I’m a big believer in the 30-minute rule: 
 
 ::: {.callout-tip}
-### The 30-minute rule
+#### The 30-minute rule
 
 If you're stuck on an issue for more than 30 minutes, **stop**, take a break, and ask for help somewhere.
 :::

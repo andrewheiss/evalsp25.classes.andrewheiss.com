@@ -1,0 +1,254 @@
+---
+title: "Week 2 FAQs"
+date: "2025-01-29T23:33"
+categories: [FAQs]
+---
+
+Hi everyone! You all had some really good questions this week! We talked about a lot of them in class last Thursday, but I'll include some others here too.
+
+
+### Why do you use ✓s for grades? 
+
+Many of you wondered why I didn't take different points off for wrong or slightly wrong answers in the first exercise (not so much with this exercise 2, since it was just a redesign). You're used to more standard grading practices where you lose points for minor errors and whatnot.
+
+I've never liked this system of grading and have always tried to avoid it. I believe that curiosity is essential to learning. Paranoia over missing a decimal point in an answer kills curiosity.
+
+There's a scene in season 1 of *Ted Lasso* where Ted cites a [made-up](https://www.snopes.com/fact-check/be-curious-not-judgmental-walt-whitman/) quote by Walt Whitman ([see timestamp 2:15 here](https://youtu.be/5x0PzUoJS-U?si=YSJvAoKo9UXx96I-&t=135)):
+
+> Be curious, not judgmental.
+
+Despite the fact that Walt Whitman never said this, I really like this sentiment, and I think it 100% applies to learning. 
+
+[One of the objectives of this class](https://datavizsp25.classes.andrewheiss.com/syllabus.html#course-objectives) is "Be curious and confident in consuming and producing data visualizations"—from even before Ted Lasso was a thing. I want you to embrace curiousity when learning this R and design stuff. I don't want to spend all my time judging every little error, and I don't want you to live in fear of judgment.
+
+I have a few strategies for encouraging judgment-free curiosity in this class:
+
+1. **Less informative grading**: Researchers who study pedagogy (i.e. teaching methods) have long found evidence that less informative grading improves student motivation. In 2024 two economists published a paper that found national-level evidence for this idea based a change in national policy on grading systems in Sweden [@CollinsLundstedt:2024]. Sweden had long used a four-level grading system in its public school sytem: fail, pass, pass with distinction, and pass with special distinction. In the 2012/2013 academic year, though, they switched to an American-style A–F system. Nationally, student performance dropped significantly—graduation rates dropped, grades dropped, and motivation dropped. 
+
+   Granular grading systems (A, A−, B+, B, etc.) actually hurt student motivation because lots of effort is spent trying to move up the scale (i.e. thinking "If I can just get two more questions right, on this assignment, I'll go from a B+ to an A−"). 
+   
+   Less informative systems actually *increase* motivation because you're not worried about exact point totals and can instead have space to play around, make mistakes, and be curious.
+
+   Hence the ✓+, ✓, and ✓− system I use. 
+
+   I'm not grading your coding ability, I'm not checking each line of code to make sure it produces some exact final figure, and I'm not looking for perfect. Also note that a ✓ does not require 100% completion—you will sometimes get stuck with weird errors that you can't solve, or the demands of pandemic living might occasionally become overwhelming. I'm looking for good faith effort, that's all. Try hard, do good work, and you'll get a ✓.
+
+   I reserve ✓−s for when the effort is bare minimum or noticably not completed (e.g., the code is copied/pasted from somewhere on the internet and doesn't run; your weekly check-in has just a couple words for each point; you only turn in one page of the assignment; etc.). I'll sometimes use intermediate ✓s like ✓−+ when work isn't *quite* fully ✓− and not *quite* fully ✓.
+
+2. **Exciting and muddy things**: Your weekly check-ins let you tell me what new and exciting things you're learning, and they let me know where you're getting stuck so I can get things unstuck. These don't need to be written formally with citations or anything—use these to tell me the cool things you're finding. This is space for judgment-free curiosity!
+
+3. **#TidyTuesday**: The whole point of the [#TidyTuesday](/assignment/tidy-tuesday.qmd) assignment is to let you do *something* neat with R. It's entirely self directed. Make something cool.
+
+
+### Why does R show numbers like `2.34e-8`? What do those mean? Can I get nicer numbers?
+
+Oh also, a lot have you have been confused by how R reports really small and really big numbers. In problem set 2, some of you said that some of the penguin regression coefficients weren't significant because their p-values were something like `2.34e-8`, which meant that they were 2.34, which is bigger than 0.05, which means it's not statistically significant. However, that's actually not right! 2.34e-8 doesn't mean "2.34 with some weird extra characters after it". The "e" in these numbers stands for "×10" and the number after the "e" is an exponent, so 2.34e-8 means 2.34 × 10^−8^. That means that you need to move the decimal 8 places to the left, leaving you with 0.0000000234. If the number after e is positive, you move the decimal place to the right, so 1.43e6 would be 1430000.
+
+So if you see a p-value of 2.34e-8, that's *most definitely* smaller than 0.05.
+
+This is officially called the [E notation](https://en.wikipedia.org/wiki/Scientific_notation#E_notation) style of [scientific notation](https://en.wikipedia.org/wiki/Scientific_notation), and it's used all the time in statistical languages. 
+
+If you want to stop R from using scientific notation, you can set a option to change when it uses it. Include this line near the beginning of your script, generally after you load your libraries (technically it can go anywhere, but it's best practice to put it near the top):
+
+```r
+options(scipen = 999)
+```
+
+This makes it so your current R session will only show scientific notation when there are 999+ zeros that it needs to hide, which effectively turns it off. You should now see numbers like 0.000043 instead of 4.3e-5.
+
+If you don't want to be that drastic, you can set it to `options(scipen = 15)` or something. 15 would mean that it would start using scientific notation when dealing with 15+ digits (like 0.000000000000001).
+
+Setting this option doesn't change it permanently—you'll have to run it every time you open RStudio. But if you include it at the beginning of your Quarto file, it'll run when you load your libraries and data.
+
+***BUT* I actually don't recommend doing this!** It can create some gross looking output, since you'll force R to add dozens of 0s to really small numbers. I'd recommend living with the scientific notation when looking at code output, but formatting it nicely when sticking it in tables or figures or any other sort of output.
+
+There are neat R functions that will format really big and really small numbers for you. The incredible [{scales} package](https://scales.r-lib.org/) lets you format numbers and axes and all sorts of things in magical ways. If you [look at the documentation](https://scales.r-lib.org/reference/index.html), you’ll see a ton of `label_SOMETHING()` functions, like `label_comma()`, `label_dollar()`, and `label_percent()`.
+
+```{r}
+#| collapse: true
+library(scales)
+
+# Make some big and small numbers
+big_number <- 400000000
+small_number <- 0.0632
+tiny_number <- 0.000000007
+
+# By default these appear with scientific notation, except for small_number
+big_number
+small_number
+tiny_number
+
+# Format these numbers different ways
+label_comma()(big_number)
+label_dollar()(big_number)
+label_dollar(prefix = "£")(big_number)
+label_dollar(prefix = "€", big.mark = ".", decimal.mark = ",")(big_number)
+
+label_percent()(small_number)
+label_percent(accuracy = 0.1)(small_number)
+label_percent(accuracy = 0.01)(small_number)
+
+label_comma()(tiny_number)
+label_comma(accuracy = 0.000000001)(tiny_number)
+label_pvalue()(tiny_number)
+```
+
+
+### Why does `#` mean both headings and code comments?
+
+This is a tricky quirk of using Quarto. In Markdown, the `#` symbol is how you [create headings](/news/2025-01-29_cleaner-nicer-qmd-output.qmd#headings-that-aren't-headings), and you can combine them to create nested headings and subheadings:
+
+``` markdown
+# Task 1: Weekly check-in
+
+Some text
+
+# Task 2: Something
+
+## A subheading
+
+Some more text
+```
+
+You make these headings *outside* of R code chunks.
+
+In R, `#` is how you [add comments to your code](/resource/style.qmd#comments). Anything after a `#` doesn't count as code and won't run. You can add comments to whole lines:
+
+```{.r}
+# Filter the mpg data, group it, and summarize it
+mpg |> 
+  filter(cty > 10) |>
+  group_by(class) |>
+  summarize(avg_hwy = mean(hwy))
+```
+
+Or you can add comments to the ends of lines:
+
+```{.r}
+mpg |> 
+  filter(cty > 10) |>  # Only rows where cty is 10+
+  group_by(class) |>  # Divide into class groups
+  summarize(avg_hwy = mean(hwy))  # Find the average hwy in each group
+```
+
+So, 
+
+- When writing text, `#` creates headings
+- When writing code in an R chunk, `#` creates comments
+
+They can even get used in the same document:
+
+```` markdown
+# Task 1: Weekly check-in
+
+Some text
+
+# Task 2: Something
+
+## A subheading
+
+Some more text
+
+```{{r}}
+# Here's some code
+ggplot(mpg, ...) + 
+  geom_point()
+```
+
+And some more text
+````
+
+### Why do we sometimes use `|>` and sometimes use `+` to combine different commands?
+
+This is a common question! You've seen two different ways to combine R functions: pipes…
+
+```{.r}
+some_dataset |> 
+  mutate(...) |> 
+  filter(...) |> 
+  group_by(...) |> 
+  summarize(...)
+```
+
+And `+`s:
+
+```{.r}
+ggplot(...) +
+  geom_point() +
+  geom_smooth() +
+  labs(...) +
+  theme_minimal()
+```
+
+You've probably noticed that these aren't interchangable! This won't work:
+
+```{.r}
+# This will break
+some_dataset +
+  mutate(...) +
+  filter(...)
+
+# This will also break
+ggplot(...) |> 
+  geom_point() |> 
+  geom_smooth() 
+```
+
+We'll talk more in-depth about why this is the case in class on Thurseday (January 30). Here's the quick and easy short version:
+
+1. The `+` is really just for ggplot. In the grammar of graphics paradigm, you stack layers on top of a base plot, so `+` is used to add additional geoms or themes or labels or other plot elements.
+2. The `|>` is used for chaining functions together. See [this page for more details about pipes](https://datavizf24.classes.andrewheiss.com/resource/pipes.html) and [this from the Posit Primers](https://r-primers.andrewheiss.com/transform-data/02-isolating/05-pipe.html). It takes the object on the left side of the `|>` and uses it as the first argument of the function on the right side.
+
+
+### Why do we sometimes use `=` and sometimes use `==`?
+
+This is tricky too!
+
+`=` is used to set different arguments in functions, like this:
+
+```{.r}
+mpg |> 
+  mutate(new_column = displ * 1000)
+
+ggplot(data = mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point()
+```
+
+The `=` means "multiply `displ` by 1000 and put that value in a column named `new_column`", or "make a plot using `mpg` as the dataset, with `displ` on the x-axis, `hwy`, on the y-axis, colored by `drv`"
+
+The `==` is used only for making comparisons and logical tests:
+
+```{.r}
+gapminder |> 
+  filter(country == "Canada")
+```
+
+That will filter the `gapminder` dataset and only keep rows where the country is Canada. **Read it in your head as "is equal to,"** like "country is equal to Canada"
+
+Conceptually you'd use it in any situation where you're doing some sort of test, like if a number is greater than or less than or equal to something:
+
+```{.r}
+# Greater than
+gampinder |> 
+  filter(lifeExp > 50)
+
+# Greater than or equal to
+gampinder |> 
+  filter(lifeExp >= 50)
+
+# Less than
+gampinder |> 
+  filter(lifeExp < 50)
+
+# Less than or equal to
+gampinder |> 
+  filter(lifeExp <= 50)
+
+# Equal to
+gampinder |> 
+  filter(lifeExp == 50)
+```
+
+### Do you have any tips for remembering all the different functions we're learning? There are so many!
+
+Yes! In RStudio, go to Help > Cheat Sheets and you'll be able to access a bunch of 2-page PDF cheatsheets for the main things that we'll cover in this class. Posit has dozens of others available, too, if you click on "Browse Cheat Sheets…" at the bottom of that menu.
