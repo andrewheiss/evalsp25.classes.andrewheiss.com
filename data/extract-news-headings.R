@@ -83,17 +83,36 @@ extract_details <- function(post_path) {
     structure(quoted = TRUE)
 
   # Convert .qmd to JSON AST
-  temp <- tempfile(fileext = ".json")
-  on.exit(unlink(temp), add = TRUE)
+  # This is tricky because Quarto files aren't fully readable by pandoc 
+  # (https://github.com/quarto-dev/quarto-cli/discussions/541#discussioncomment-2512284)
+  #
+  # Code chunks that start with ```{r} are nonstandard Markdown, and pandoc
+  # can't read them correctly. When it reads the file, it lumps all the text
+  # after a code chunk into a CodeBlock block in the AST.
+  #
+  # So to work around this, I remove all computational code chunks (```{r},
+  # {python}, {sql}, etc.) with some gross regex, then write the chunk-less
+  # version of the file to a temporary file, *then* process that with pandoc
+  temp_ast <- tempfile(fileext = ".json")
+  temp_md <- tempfile(fileext = ".md")
+  on.exit(unlink(c(temp_ast, temp_md)), add = TRUE)
+
+  qmd_content <- readLines(post_path, warn = FALSE) |> 
+    paste(collapse = "\n")
+
+  qmd_sans_chunks <- qmd_content |>
+    stringr::str_remove_all("(?s)```\\{[^}]*\\}.*?```")
+
+  writeLines(qmd_sans_chunks, temp_md)
 
   rmarkdown::pandoc_convert(
-    post_path, 
+    temp_md, 
     to = "json", from = "markdown", 
-    output = temp, wd = here::here()
+    output = temp_ast, wd = here::here()
   )
 
   ast <- jsonlite::fromJSON(
-    readLines(temp, warn = FALSE), 
+    readLines(temp_ast, warn = FALSE), 
     simplifyDataFrame = FALSE
   )
 
