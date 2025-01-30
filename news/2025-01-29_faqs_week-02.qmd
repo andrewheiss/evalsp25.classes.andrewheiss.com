@@ -9,7 +9,7 @@ Hi everyone! You all had some really good questions this week! We talked about a
 
 ### Why do you use ✓s for grades? 
 
-Many of you wondered why I didn't take different points off for wrong or slightly wrong answers in the first exercise (not so much with this exercise 2, since it was just a redesign). You're used to more standard grading practices where you lose points for minor errors and whatnot.
+Many of you wondered why I didn't take different points off for wrong or slightly wrong answers in the first couple problem sets. You're used to more standard grading practices where you lose points for minor errors and whatnot.
 
 I've never liked this system of grading and have always tried to avoid it. I believe that curiosity is essential to learning. Paranoia over missing a decimal point in an answer kills curiosity.
 
@@ -19,13 +19,13 @@ There's a scene in season 1 of *Ted Lasso* where Ted cites a [made-up](https://w
 
 Despite the fact that Walt Whitman never said this, I really like this sentiment, and I think it 100% applies to learning. 
 
-[One of the objectives of this class](https://datavizsp25.classes.andrewheiss.com/syllabus.html#course-objectives) is "Be curious and confident in consuming and producing data visualizations"—from even before Ted Lasso was a thing. I want you to embrace curiousity when learning this R and design stuff. I don't want to spend all my time judging every little error, and I don't want you to live in fear of judgment.
+[One of the objectives of this class](/syllabus.qmd#course-objectives) is "Become curious and confident in consuming and producing evaluations"—from even before Ted Lasso was a thing. I want you to embrace curiousity when learning this R and design stuff. I don't want to spend all my time judging every little error, and I don't want you to live in fear of judgment.
 
 I have a few strategies for encouraging judgment-free curiosity in this class:
 
 1. **Less informative grading**: Researchers who study pedagogy (i.e. teaching methods) have long found evidence that less informative grading improves student motivation. In 2024 two economists published a paper that found national-level evidence for this idea based a change in national policy on grading systems in Sweden [@CollinsLundstedt:2024]. Sweden had long used a four-level grading system in its public school sytem: fail, pass, pass with distinction, and pass with special distinction. In the 2012/2013 academic year, though, they switched to an American-style A–F system. Nationally, student performance dropped significantly—graduation rates dropped, grades dropped, and motivation dropped. 
 
-   Granular grading systems (A, A−, B+, B, etc.) actually hurt student motivation because lots of effort is spent trying to move up the scale (i.e. thinking "If I can just get two more questions right, on this assignment, I'll go from a B+ to an A−"). 
+   Granular grading systems (A, A−, B+, B, etc.) actually hurt student motivation because lots of effort is spent trying to move up the scale (i.e. thinking "If I can just get two more questions right on this assignment, I'll go from a B+ to an A−"). 
    
    Less informative systems actually *increase* motivation because you're not worried about exact point totals and can instead have space to play around, make mistakes, and be curious.
 
@@ -194,7 +194,7 @@ ggplot(...) |>
   geom_smooth() 
 ```
 
-We'll talk more in-depth about why this is the case in class on Thurseday (January 30). Here's the quick and easy short version:
+We'll talk more in-depth about why this is the case in class on Thursday (January 30). Here's the quick and easy short version:
 
 1. The `+` is really just for ggplot. In the grammar of graphics paradigm, you stack layers on top of a base plot, so `+` is used to add additional geoms or themes or labels or other plot elements.
 2. The `|>` is used for chaining functions together. See [this page for more details about pipes](https://datavizf24.classes.andrewheiss.com/resource/pipes.html) and [this from the Posit Primers](https://r-primers.andrewheiss.com/transform-data/02-isolating/05-pipe.html). It takes the object on the left side of the `|>` and uses it as the first argument of the function on the right side.
