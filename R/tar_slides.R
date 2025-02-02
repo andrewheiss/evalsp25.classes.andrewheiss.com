@@ -67,9 +67,9 @@ render_xaringan <- function(slide_path) {
 xaringan_to_pdf <- function(slide_path) {
   path_sans_ext <- tools::file_path_sans_ext(slide_path)
 
-  if (path_sans_ext == "slides/03-class") {
-    return(here::here("slides/03-class.pdf"))
-  }
+  # if (path_sans_ext == "slides/03-class") {
+  #   return(here::here("slides/03-class.pdf"))
+  # }
 
   if (path_sans_ext == "slides/04-class") {
     return(here::here("slides/04-class.pdf"))
