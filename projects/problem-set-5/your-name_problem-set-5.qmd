@@ -149,7 +149,9 @@ The diff-in-diff coefficient you found in part 4 is accurate, but the standard e
 
 To fix this, run a diff-in-diff model that includes two additional control variables: `block + month`. 
 
-> ***Warning***: this will be *incredibly* slow! There are `r nrow(distinct(terror, block))` blocks and `nrow(distinct(terror, month))` months, and R is finding estimates for each block and month, and the math to do that is complex. Every time you render this document, R will rerun the model, which takes 5-10 seconds, and the delay when rendering can be annoying. If you want to speed this up across Quarto sessions, add the option `cache=TRUE` to the chunk options for this chunk. R will store the results in a temporary file and won't re-run the model if the data hasn't changed.
+::: {.callout-warning}
+This will be a little slow. There are `r nrow(distinct(terror, block))` blocks and `nrow(distinct(terror, month))` months, and R is finding estimates for each block and month, and the math to do that is complex. Every time you render this document, R will rerun the model, which takes 5-10 seconds, and the delay when rendering can be annoying. If you want to speed this up across Quarto sessions, add the option `cache=TRUE` to the chunk options for this chunk. R will store the results in a temporary file and won't re-run the model if the data hasn't changed.
+:::
 
 **Don't use `tidy` to view the results**. You'll get a table with almost 900 rows and it'll take up pages and pages of your rendered document. If you really want to see the results, filter out the block and month rows (like this:).
 
@@ -164,7 +166,7 @@ tidy(name_of_model) |>
 # DON'T RUN tidy() or modelsummary() without filtering out month and block coefficients
 ```
 
-That slowness is miserable. You can get around that by using a different function for OLS that has built-in support for fixed effects (or indicator variables). The `feols()` (fixed-effects OLS) function from the {fixest} package lets you include indicator variables in regression in a more sophisticated way. The math is lighting fast, and the coefficients for each block and year are hidden by default (though you can still see them if you really want).
+That slowness is annoying. You can get around that by using a different function for OLS that has built-in support for fixed effects (or indicator variables). The `feols()` (fixed-effects OLS) function from the {fixest} package lets you include indicator variables in regression in a more sophisticated way. The math is lighting fast, and the coefficients for each block and year are hidden by default (though you can still see them if you really want).
 
 The syntax for `feols()` is the same as `lm()`, but with a slight change to accommodate the fixed effects. Use the `|` character to specify a section of the formula that contains the fixed effects: 
 
@@ -200,7 +202,7 @@ Recreate columns A, B, and C from Table 3 from the original article with `models
 
 ```r
 modelsummary(list(models, go, here),
-             se = "white", fmt = "%.5f", stars = TRUE)
+             se = "white", fmt = 5, stars = TRUE)
 ```
 
 ```{r show-all-models}
@@ -212,42 +214,3 @@ Answer these questions: (again, you don't have to keep this in list form when yo
 - **Does having extra police reduce thefts on the same block? Is the effect significant?**
 - **Does having extra police reduce thefts one block away? Is the effect significant?**
 - **Does having extra police reduce thefts two blocks away Is the effect significant?**
-
-
-# 6. Translate results to something more interpretable
-
-According to the third model, having additional police on a block caused a reduction of 0.081 car thefts per month on average. What the heck does that even mean though? This whole outcome variable is weird anyway---it's the average number of thefts per block per month, and most block-months have 0 thefts. Having a number like 0.081 doesn't quite represent the proportion of crime or anything logically interpretable or anything. It's a little hard to talk about.
-
-To fix this, we can talk about percent changes instead. Recall from past classes (like microeconomics or GRE prep questions) that you can calculate the percent change (or growth) between two numbers with this formula:
-
-$$
-\text{percent change} = \frac{\text{new} - \text{old}}{\text{old}}
-$$
-
-You can remember this as **NOO**, for **n**ew minus **o**ld divided by **o**ld. With treatment and outcome groups, you can find the percent change because of a program or policy by using treatment as "new" and outcome as "old".
-
-Imagine if after some program, the treatment group had an outcome of 3 while the control group had an outcome of 6. The percent change in outcome because of the causal effect of the program is $\frac{3 - 6}{6}$, or -0.5:
-
-```{r example-pct-change}
-(3 - 6) / 6
-```
-
-This means that this fake program *caused* a 50% reduction in the outcome. 
-
----
-
-Find the percent change in car thefts because of the increase police presence after the July terror attack *using the results from Model C*. To do this, you need two numbers: (1) the average number of thefts in control blocks after the attack, and (2) the average number of thefts in treatment blocks after the attack. Because you're using Model C, your control group includes blocks that don't have synagogues within two blocks.
-
-Use `group_by()` and `summarize()` to calculate the average number of thefts after the attack in control blocks (Hint: this will be just like the diff-in-diff by hand table you made in section 3, but instead of grouping by `same_block`, group by `more_than_two_away`).
-
-```{r terror-treatment-control}
-
-```
-
-Subtract the diff-in-diff effect for "same_block × after" from Model C from the average in the control group to find the average number of car thefts in treatment blocks. (Note: It'll be really tempting to just look at the table for the average for treatment + after, but this won't be right! You need to use control + diff-in-diff, since that's the counterfactual.)
-
-Finally, calculate the percent change in car thefts after the terror attack across treatment and control blocks (hint: the answer is in the third full paragraph on p. 123 of the original article).
-
-```{r terror-pct-change}
-
-```
