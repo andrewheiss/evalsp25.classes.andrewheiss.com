@@ -44,7 +44,7 @@ Provide in-depth background about the program. Include details about (1) when it
 
 Explain and explore the program’s underlying theory. Sometimes programs will explain why they exist in a mission statement, but often they don’t and you have to infer the theory from what the program looks like when implemented. What did the program designers plan on occurring? Was this theory based on existing research? If so, cite it.
 
-Include a simple impact theory graph showing the program’s basic activities and outcomes. Recall from class and your reading that this is focused primarily on the theory and mechanisms, not on the implementation of the program.
+Include a simple **impact theory graph** showing the program’s basic activities and outcomes. Recall from class and your reading that this is focused primarily on the theory and mechanisms, not on the implementation of the program.
 
 
 ### 3: Logic model
@@ -73,7 +73,7 @@ List every possible input, activity, output, and outcome for the program and pro
 
 #### Diagram
 
-Use flowchart software to connect the inputs, activities, outputs, and outcomes and create a complete logic model. Remember that inputs will always feed into activities, and that activities always produce outputs (that's the whole purpose of an activity: convert an input to an output). Include this as a figure.
+Use flowchart software to connect the inputs, activities, outputs, and outcomes and create a complete **logic model**. Remember that inputs will always feed into activities, and that activities always produce outputs (that's the whole purpose of an activity: convert an input to an output). Include this as a figure.
 
 
 ### 4: Analysis
