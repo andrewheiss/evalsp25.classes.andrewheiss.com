@@ -20,6 +20,7 @@ slide_details <- tibble::tribble(
 ## Readings
 
 - {{< fa podcast >}} Prologue and at least one of the four acts from [This American Life, "Gardens of Branching Paths," episode #691, January 10, 2020](https://www.thisamericanlife.org/691/gardens-of-branching-paths)
+- {{< fa arrow-up-right-from-square >}} Andrew Heiss, ["Demystifying causal inference estimands: ATE, ATT, and ATU"](https://www.andrewheiss.com/blog/2024/03/21/demystifying-ate-att-atu/)
 - {{< fa book >}} Chapter 3 in *Impact Evaluation in Practice* [@wb-eval]
 - {{< fa book >}} Chapters 8, 9, and 10 in *The Effect* [@Huntington-Klein:2021]
 
