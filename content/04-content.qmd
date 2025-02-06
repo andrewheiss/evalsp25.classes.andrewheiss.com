@@ -60,24 +60,18 @@ youtube_list(slide_details, playlist_id)
 ```
 
 
-:::: {.content-hidden}
-
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 4 FAQ slides**](/slides/04-class.html) ([PDF](/slides/04-class.pdf))
-- [{{< fa brands r-project >}} Live code on Dropbox](https://andhs.co/live)
-- [{{< fa brands r-project >}} Regression playground Posit.cloud project](https://posit.cloud/spaces/462899/content/7445862)
-- [{{< fa file-zipper >}} Regression playground project `.zip` file](/projects/regression-example.zip)
 
 ### Logic model for MPA/MPP program
 
-```{r echo=FALSE, out.width="80%"}
+```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("files", "img", "mpa-mpp-logic-model.jpg"), error = FALSE)
 ```
 
-::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFVrHdTifzlyS9dsJjhEhsF

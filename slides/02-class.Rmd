@@ -147,6 +147,24 @@ class: middle
 
 .center.small[[From slides](https://evalsp25.classes.andrewheiss.com/slides/02-slides.html#39)]
 
+???
+
+```
+library(tidyverse)
+library(palmerpenguins)
+library(broom)
+library(parameters)
+library(marginaleffects)
+
+penguins <- penguins |> 
+  drop_na(sex)
+penguins
+
+example_model <- lm(body_mass_g ~ flipper_length_mm + sex, data = penguins)
+example_model
+tidy(example_model)
+```
+
 ---
 
 .center[
@@ -177,7 +195,37 @@ class: middle
 
 Show model with `lm()`; show t-test with `t.test()`; show both through `tidy()`
 
-Use **marginaleffects**
+Use {marginaleffects}
+
+```r
+library(tidyverse)
+library(palmerpenguins)
+library(broom)
+library(parameters)
+library(marginaleffects)
+
+penguins <- penguins |> 
+  drop_na(sex)
+penguins
+
+example_ttest <- t.test(body_mass_g ~ sex, data = penguins)
+example_ttest
+
+example_model <- lm(body_mass_g ~ flipper_length_mm + sex, data = penguins)
+example_model
+
+tidy(example_ttest, conf.int = TRUE)
+tidy(example_model, conf.int = TRUE)
+
+model_parameters(example_ttest)
+model_parameters(example_model)
+
+avg_slopes(example_model)
+avg_comparisons(example_model)
+
+plot_predictions(example_model, by = "sex")
+plot_predictions(example_model, condition = "flipper_length_mm")
+```
 
 ---
 
