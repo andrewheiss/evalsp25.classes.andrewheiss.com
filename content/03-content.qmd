@@ -56,15 +56,11 @@ Hands-on R materials:
 - [Lab slides 4: Visualize data with ggplot2](https://aysps.github.io/2024-aysps-dataviz-fall/session_1/slides/04_visualize-data.html) ([PDF](https://aysps.github.io/2024-aysps-dataviz-fall/session_1/slides/04_visualize-data.pdf))
 - [Lab slides 5: Transform data with dplyr](https://aysps.github.io/2024-aysps-dataviz-fall/session_1/slides/05_transform-data.html) ([PDF](https://aysps.github.io/2024-aysps-dataviz-fall/session_1/slides/05_transform-data.pdf))
 
-:::: {.content-hidden}
-
 ### Logic model for MPA/MPP program
 
-```{r echo=FALSE, out.width="80%"}
+```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("files", "img", "mpa-mpp-logic-model.jpg"), error = FALSE)
 ```
-
-::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHjKJRcD-ebQUbcaFhc0cQH
