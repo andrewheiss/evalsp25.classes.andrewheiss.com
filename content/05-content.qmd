@@ -49,13 +49,13 @@ slide_frame("/slides/05-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-:::: {.content-hidden}
-
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 5 FAQ slides**](/slides/05-class.html) ([PDF](/slides/05-class.pdf))
+- [Dagitty](https://www.dagitty.net/)
+- [cStructure](https://cstructure.dev/)
 
 ### Confounding, unblocked
 
@@ -82,10 +82,22 @@ Here are all the materials we'll use in class:
 ```{=html}
 <div class="ratio ratio-16x9">
 <video controls loop>
-<source src="/slides/img/05-class/video-mediation.mp4" type="video/mp4">
+<source src="/slides/img/05-class/video-mediating.mp4" type="video/mp4">
 </video>
 </div>
 ```
+
+### Collider bias
+
+```{=html}
+<div class="ratio ratio-16x9">
+<video controls loop>
+<source src="/slides/img/05-class/video-collider.mp4" type="video/mp4">
+</video>
+</div>
+```
+
+:::: {.content-hidden}
 
 ### Logic model and DAG for closing streets program
 

@@ -64,6 +64,16 @@ render_xaringan <- function(slide_path) {
 #   complex_slides = TRUE
 # )
 
+# BUT WAIT, complex_slides is temporarily broken in early 2025 because of
+# changes in headless Chrome (https://github.com/rstudio/chromote/issues/193)
+
+# A (slow) workaround is to use decktape
+# (https://github.com/astefanutti/decktape) through Docker with this cryptic
+# command (after serving the slides with a live server in VS Code or Positron or
+# whatever)
+
+# docker run --rm -t --net=host -v `pwd`:/slides astefanutti/decktape http://host.docker.internal:5500/05-class.html slides.pdf
+
 xaringan_to_pdf <- function(slide_path) {
   path_sans_ext <- tools::file_path_sans_ext(slide_path)
 
@@ -73,6 +83,10 @@ xaringan_to_pdf <- function(slide_path) {
 
   if (path_sans_ext == "slides/04-class") {
     return(here::here("slides/04-class.pdf"))
+  }
+
+  if (path_sans_ext == "slides/05-class") {
+    return(here::here("slides/05-class.pdf"))
   }
 
   if (path_sans_ext == "slides/06-class") {
