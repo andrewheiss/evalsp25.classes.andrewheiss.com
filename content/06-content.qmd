@@ -50,8 +50,6 @@ slide_frame("/slides/06-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-:::: {.content-hidden}
-
 ## In-class stuff
 
 Here are all the materials we'll use in class:
@@ -113,7 +111,6 @@ Here are all the materials we'll use in class:
 </div>
 ```
 
-::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFJtz7egfUASfhhz6zuj7GZ
