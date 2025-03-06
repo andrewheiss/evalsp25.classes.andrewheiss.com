@@ -53,7 +53,6 @@ slide_frame("/slides/07-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-:::: {.content-hidden}
 
 ## In-class stuff
 
@@ -61,7 +60,20 @@ Here are all the materials we'll use in class:
 
 - [**Session 7 FAQ slides**](/slides/07-class.html) ([PDF](/slides/07-class.pdf))
 - [In-class `.zip` file](/projects/rcts-ipw.zip)
-- [Posit.cloud project](https://posit.cloud/spaces/462899/content/7658310)
+- [Posit.cloud project](https://posit.cloud/spaces/599025/content/9862578)
+
+Code from Oregon RCT:
+
+```{.r}
+oregon <- read_csv("data/oregon.csv")
+
+oregon_clean <- oregon |> 
+  mutate(treatment_num = ifelse(treatment == "Treated", 1, 0)) |> 
+  mutate(outcome_num = ifelse(owe_medical_12 == "Owe Money", 1, 0))
+
+model_rct <- lm(outcome_num ~ treatment_num, data = oregon_clean)
+tidy(model_rct, conf.int = TRUE)
+```
 
 Other helpful resources:
 
@@ -72,7 +84,6 @@ Other helpful resources:
 - [Standard errors](/example/standard-errors.qmd)
 - [Unobserved confounding and sensitivity analysis](/example/confounding-sensitivity.qmd)
 
-::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sGJURMOwN9tf9MNDN4t0JMz
