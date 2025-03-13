@@ -23,3 +23,5 @@ projects/*.zip
 files/incomplete-reports.zip
 
 /.luarc.json
+
+projects/markov-chain/text/star_wars_all.txt

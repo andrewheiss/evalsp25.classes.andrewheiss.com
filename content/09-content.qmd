@@ -7,24 +7,141 @@ date: "2025-03-13"
 
 This session is a continuation of [session 8](/content/08-content/).
 
-:::: {.content-hidden}
 
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 9 FAQ slides**](/slides/09-class.html) ([PDF](/slides/09-class.pdf))
-- [Diff-in-diff R code (from last week)](/projects/week-8.zip) (on [Posit.cloud](https://posit.cloud/spaces/462899/content/7707970))
-- [IPW/matching R code (from two weeks ago)](/projects/rcts-ipw.zip) (on [Posit.cloud](https://posit.cloud/spaces/462899/content/7658310))
+- [Diff-in-diff R code (from last week)](/projects/week-8.zip) (on [Posit.cloud](https://posit.cloud/spaces/599025/content/9908417))
 
-GitHub Copilot
+### LLMs
 
+LLMs that work well with code:
+
+- [Claude](https://claude.ai/)
+- [DeepSeek](https://www.deepseek.com/)
+- [ChatGPT](https://chat.openai.com/) (but through GitHub Copilot)
+
+GitHub Copilot:
+
+- General details
+  - [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart)
+  - [Responsible use of GitHub Copilot Chat in GitHub](https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-github)
+  - [Best practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot)
+  - [Copilot tips](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)
 - Create a [GitHub account](https://github.com/)
-- Sign up for the [GitHub Student Developer Pack](https://education.github.com/pack)
-- Download and install [Visual Studio Code](https://code.visualstudio.com/)
-- Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-- [Set up Copilot in RStudio](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html)
-- [How to use GitHub Copilot and ChatGPT in RStudio - get setup in less than 5 minutes!](https://www.youtube.com/watch?v=t7NrkAeosog)
-- [Copilot tips](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)
+  - Optional: Sign up for the [GitHub Student Developer Pack](https://education.github.com/pack)
+- Use Copilot [in the browser](https://github.com/copilot)
+- Use Copilot in Visual Studio Code
+  - Download and install [Visual Studio Code](https://code.visualstudio.com/)
+  - Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- Use Copilot in RStudio
+  - [Set up Copilot in RStudio](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html)
+  - [How to use GitHub Copilot and ChatGPT in RStudio - get setup in less than 5 minutes!](https://www.youtube.com/watch?v=t7NrkAeosog)
+- [{ellmer}](https://ellmer.tidyverse.org/) + [Ollama](https://ollama.com/)
 
-::::
+### Quarto websites
+
+Resources:
+
+- [Creating a website](https://quarto.org/docs/websites/)
+- [Bootswatch themes](https://bootswatch.com/)
+- Publishing with [Netlify Drop](https://app.netlify.com/drop)
+- Publishing with [Quarto Pub](https://quarto.org/docs/publishing/quarto-pub.html)
+- Publishing with [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
+
+Examples:
+
+- This class website :)
+- [My website](https://www.andrewheiss.com) ([`source`](https://github.com/andrewheiss/ath-quarto))
+- Project-specific websites:
+  - [Navigating Hostility](https://stats.andrewheiss.com/silent-skywalk/) ([`source`](https://github.com/andrewheiss/silent-skywalk))
+  - [Pandemic Pass](https://stats.andrewheiss.com/mountainous-mackerel/) ([`source`](https://github.com/andrewheiss/mountainous-mackerel))
+  - [Derogations, Democratic Backsliding, and International Human Rights During the COVID-19 Pandemic](https://stats.andrewheiss.com/lemon-lucifer/) ([`source`](https://github.com/andrewheiss/lemon-lucifer))
+- Other websites:
+  - [2024 AYS data visualization workshops](https://aysps.github.io/2024-aysps-dataviz/) ([`source`](https://github.com/aysps/2024-aysps-dataviz))
+  - [Workshop on fancy regression](https://talks.andrewheiss.com/2024-11-13_udem-beyond-ols/) ([`source`](https://github.com/andrewheiss/2024-11-13_udem-beyond-ols))
+  - [ForeignAssistance.gov backup](https://foreignassistance.andrewheiss.com/) ([`source`](https://github.com/andrewheiss/foreignassistance))
+
+Other Quarto things
+
+- [Citations](https://quarto.org/docs/authoring/citations.html) 
+  - With [RStudio](https://posit.co/blog/rstudio-1-4-preview-citations/)
+  - [Citation syntax](/resource/markdown.qmd#citations)
+  - [Example of a citation-heavy document](https://stats.andrewheiss.com/snoopy-spring/) ([`source`](https://github.com/andrewheiss/snoopy-spring/blob/main/index.qmd))
+- Interactivity
+  - [Plotly and `ggplotly()`](https://plotly.com/ggplot2/)
+  - [Dashboards](https://quarto.org/docs/dashboards/)
+  - [Observable JS](https://quarto.org/docs/interactive/ojs/) + [Observable Plot](https://observablehq.com/plot/getting-started) (like ggplot for Javascript)
+  - Examples: 
+    - [Penguin dashboard](https://jjallaire.github.io/ojs-penguins-dashboard/)
+    - [Book tracker](https://books.heiss.website/2025/)
+    - [Example book dashboard](https://www.andrewheiss.com/blog/2024/01/12/diy-api-plumber-quarto-ojs/_book/dashboard.html)
+    - [Interactive maps with OJS](https://www.andrewheiss.com/blog/2025/02/10/usaid-ojs-maps/)
+
+`ggplotly()` example:
+
+```{r}
+#| label: ggplotly-example
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(plotly)
+library(gapminder)
+
+plot_thing <- gapminder |> 
+  filter(year == 2007) |> 
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point(aes(text = country)) +  # text is a special aesthetic for plotly labels
+  scale_x_log10()
+
+ggplotly(plot_thing)
+```
+
+OJS example:
+
+::: {.callout-note}
+#### R
+
+This is R code!
+:::
+
+```{r}
+# Make the gapminder data available to Observable JS
+ojs_define(gapminder = gapminder)
+```
+
+::: {.callout-note}
+#### Observable
+This is NOT R code! This is [Observable JS](https://quarto.org/docs/interactive/ojs/) code!
+:::
+
+```{ojs}
+viewof current_year = Inputs.range(
+  [1952, 2007], 
+  {value: 1952, step: 5, label: "Year:"}
+)
+
+// Rotate the data so that it works with OJS
+gapminder_js = transpose(gapminder)
+
+// Filter the data based on the selected year
+gapminder_filtered = gapminder_js.filter(d => d.year == current_year)
+
+// Plot this thing
+Plot.plot({
+  x: {type: "log"},
+  marks: [
+    Plot.dot(gapminder_filtered, {
+        x: "gdpPercap", y: "lifeExp", fill: "continent", r: 6,
+        channels: {
+          Country: d => d.country
+        },
+        tip: true
+      }
+    )
+  ]}
+)
+```
