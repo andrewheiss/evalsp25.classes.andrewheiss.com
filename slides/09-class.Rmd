@@ -370,6 +370,20 @@ class: title title-inv-5
 
 .center[
 <figure>
+  <img src="img/09-class/openai-copyright.png" alt="OpenAI copyright" title="OpenAI copyright" width="50%">
+</figure>
+]
+
+???
+
+https://arstechnica.com/tech-policy/2025/03/openai-urges-trump-either-settle-ai-copyright-debate-or-lose-ai-race-to-china/
+
+---
+
+# Just this week!
+
+.center[
+<figure>
   <img src="img/09-class/nyt-yale-ai.png" alt="Yale suspension AI" title="Yale suspension AI" width="75%">
 </figure>
 ]

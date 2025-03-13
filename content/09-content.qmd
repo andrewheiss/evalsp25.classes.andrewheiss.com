@@ -17,11 +17,15 @@ Here are all the materials we'll use in class:
 
 ### LLMs
 
+Text-generation Markov chains with R:
+
+- [`markov-chain.zip`](/projects/markov-chain.zip)
+
 LLMs that work well with code:
 
-- [Claude](https://claude.ai/)
-- [DeepSeek](https://www.deepseek.com/)
-- [ChatGPT](https://chat.openai.com/) (but through GitHub Copilot)
+- [Claude](https://claude.ai/) (run by Anthropic, based in the US)
+- [DeepSeek](https://www.deepseek.com/) (run by DeepSeek, based in China—see [this](https://www.bbc.com/news/articles/c5yv5976z9po) and [this](https://www.wired.com/story/deepseek-china-nationalism/))
+- [ChatGPT](https://chat.openai.com/), but through GitHub Copilot (run by OpenAI, based in the US)
 
 GitHub Copilot:
 
@@ -40,6 +44,7 @@ GitHub Copilot:
   - [Set up Copilot in RStudio](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html)
   - [How to use GitHub Copilot and ChatGPT in RStudio - get setup in less than 5 minutes!](https://www.youtube.com/watch?v=t7NrkAeosog)
 - [{ellmer}](https://ellmer.tidyverse.org/) + [Ollama](https://ollama.com/)
+- [Roo Code](https://github.com/RooVetGit/Roo-Code) ([wild example of a complete website app](https://bsky.app/profile/dynamicwebpaige.bsky.social/post/3lkc3ciquzk2u))
 
 ### Quarto websites
 
