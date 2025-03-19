@@ -320,6 +320,10 @@ class: middle
 
 ---
 
+.box-5.large[Average output]
+
+---
+
 .box-5.large[Reasoning models]
 
 ---
