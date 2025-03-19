@@ -71,6 +71,11 @@ Here are all the materials we'll use in class:
   tidy(model_adjusted)
   ```
 
+### Art → Life expectancy DAG we made together
+
+![Art → Life expectancy](img/art-life-dag.png)
+
+
 ### Confounding, unblocked
 
 ```{=html}
