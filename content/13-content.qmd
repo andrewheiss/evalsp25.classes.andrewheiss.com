@@ -23,7 +23,8 @@ slide_details <- tibble::tribble(
 - {{< fa arrow-up-right-from-square >}} ["Generating random numbers"](/example/random-numbers.qmd)
 - {{< fa arrow-up-right-from-square >}} ["The ultimate guide to generating synthetic data for causal inference"](/example/synthetic-data.qmd)
 - {{< fa file-pdf >}} Paul Hünermund and Beyers Louw, ["On the Nuisance of Control Variables in Regression Analysis"](https://arxiv.org/abs/2005.10314) [@HunermundLouw:2020] (**click on the PDF link in the right sidebar**)
-- {{< fa file-pdf >}} ["Types of Evaluation,"](https://www.cdc.gov/std/Program/pupestd/Types%20of%20Evaluation.pdf) National Center for HIV/AIDS, Viral Hepatitis, STD, and TB Prevention, Centers for Disease Control (CDC)
+- {{< fa file-pdf >}} ["Types of Evaluation,"](https://www.cdc.gov/std/Program/pupestd/Types%20of%20Evaluation.pdf) National Center for HIV/AIDS, Viral Hepatitis, STD, and TB Prevention, Centers for Disease Control (CDC) 
+  - **ugh that link got DOGEd**; [download it from here instead](/files/cdc-types-of-evaluation.pdf) or [from archive.org](https://web.archive.org/web/20220809100114/https://www.cdc.gov/std/Program/pupestd/Types%20of%20Evaluation.pdf)
 - {{< fa book >}} Chapters 11–13 in *Impact Evaluation in Practice* [@wb-eval]
 - {{< fa book >}} Chapter 15 in *The Effect* [@Huntington-Klein:2021] (skim this)
 
@@ -48,15 +49,15 @@ slide_frame("/slides/13-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-:::: {.content-hidden}
 
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
-- [{{< fa brands r-project >}} Live R script](https://www.dropbox.com/scl/fi/xgkpdrl2wkvhzzb07ug20/synthetic-data-sp25.R?rlkey=raztir0xttlyhs38e08jdgak0&dl=0)
+- [**Week 13 FAQ slides**](/slides/13-class.html) ([PDF](/slides/13-class.pdf))
+- [Control variables in social science](https://www.zotero.org/groups/5943332/control-variables-social-science/library)
+- [{{< fa brands r-project >}} Live R script](https://www.dropbox.com/scl/fi/gf4pej02e1lhc42qylexa/synthetic-data-sp25.R?rlkey=mt19lvj1rsb23ot8rvbptb1fd&dl=0)
 
-::::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sEkOTbIIpoXYu8czSTl1yIh

@@ -1,0 +1,242 @@
+---
+title: Synthetic data for adjustment-based approaches
+toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = 0.618,
+  fig.align = "center",
+  fig.retina = 3,
+  out.width = "75%",
+  collapse = TRUE
+)
+
+set.seed(1234)
+options("digits" = 4, "width" = 170)
+options(dplyr.summarise.inform = FALSE)
+```
+
+```{r}
+#| label: libraries
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(broom)
+library(scales)
+library(ggdag)
+library(patchwork)
+```
+
+
+1. **Draw a DAG that maps out how all the columns you care about are related.**
+
+   Here's a simple DAG that shows the causal effect of mosquito net usage on malaria risk. Income and health both influence and confound net use and malaria risk, and income also influences health.
+
+```{r}
+#| label: observational-dag
+#| indent: "   "
+
+mosquito_dag <- dagify(
+  mal ~ net + inc + hlth,
+  net ~ inc + hlth,
+  hlth ~ inc,
+  coords = list(
+    x = c(mal = 4, net = 1, inc = 2, hlth = 3),
+    y = c(mal = 1, net = 1, inc = 2, hlth = 2)
+  )
+)
+
+ggdag(mosquito_dag) +
+  theme_dag()
+```
+
+2. **Specify how those nodes are measured.**
+
+   For the sake of this example, we'll measure these nodes like so. See [the random number example](/example/random-numbers.qmd) for more details about the distributions.
+
+   - **Malaria risk**: scale from 0–100, mostly around 40, but ranging from 10ish to 80ish. Best to use a Beta distribution.
+
+   - **Net use**: binary 0/1, TRUE/FALSE variable, where 50% of people use nets. Best to use a binomial distribution. However, since we want to use other variables that increase the likelihood of using a net, we'll do some cool tricky stuff, explained later.
+
+   - **Income**: weekly income, measured in dollars, mostly around 500 ± 300. Best to use a normal distribution.
+
+   - **Health**: scale from 0–100, mostly around 70, but ranging from 50ish to 100. Best to use a Beta distribution.
+
+3. **Specify the relationships between the nodes based on the DAG equations.**
+
+   There are three models in this DAG:
+
+   - **`hlth ~ inc`**: Income influences health. We'll assume that every 10 dollars/week is associated with a 1 point increase in health (so a 1 dollar incrrease is associated with a 0.02 point increase in health)
+
+   - **`net ~ inc + hlth`**: Income and health both increase the probability of net usage. This is where we do some cool tricky stuff.
+
+     Both income and health have an effect on the probability of bed net use, but bed net use is measured as a 0/1, TRUE/FALSE variable. If we run a regression with `net` as the outcome, we can't really interpret the coefficients like "a 1 point increase in health is associated with a 0.42 point increase in bed net being TRUE." That doesn't even make sense.
+
+     Ordinarily, when working with binary outcome variables, you use logistic regression models (see [the crash course we had when talking about propensity scores here](/example/matching-ipw.qmd#oversimplified-crash-course-in-logistic-regression)). In this kind of regression, the coefficients in the model represent changes in the *log odds* of using a net. As we discuss in [the crash course section](/example/matching-ipw.qmd#oversimplified-crash-course-in-logistic-regression), log odds are typically impossible to interpet. If you exponentiate them, you get odds ratios, which let you say things like "a 1 point increase in health is associated with a 15% increase in the likelihood of using a net." Technically we could include coefficients for a logistic regression model and simulate probabilities of using a net or not using log odds and odds ratios (and that's what I do in the rain barrel data from Problem Set 3 ([see code here](https://github.com/andrewheiss/evalsp22.classes.andrewheiss.com/blob/main/content/assignment/03-problem-set.Rmd#L225))), but that's really hard to wrap your head around since you're dealing with strange uninterpretable coefficients. So we won't do that here.
+
+     Instead, we'll do some fun trickery. We'll create something called a "bed net score" that gets bigger as income and health increase. We'll say that a 1 point increase in health score is associated with a 1.5 point increase in bed net score, and a 1 dollar increase in income is associated with a 0.5 point increase in bed net score. This results in a column that ranges all over the place, from 200 to 500 (in this case; that won't always be true). This column definitely doesn't look like a TRUE/FALSE binary column—it's just a bunch of numbers. That's okay!
+
+     We'll then use the `rescale()` function from the {scales} package to take this bed net score and scale it down so that it goes from 0.05 to 0.95. This represents a person's probability of using a bed net.
+
+     Finally, we'll use that probability in the `rbinom()` function to generate a 0 or 1 for each person. Some people will have a high probability because of their income and health, like 0.9, and will most likely use a net. Some people might have a 0.15 probability and will likely not use a net.
+
+     When you generate binary variables like this, it's hard to know the exact effect you'll get, so it's best to tinker with the numbers until you see relationships that you want.
+
+   - **`mal ~ net + inc + hlth`**: Finally net use, income, and health all have an effect on the risk of malaria. Building this relationship is easy since it's just a regular linear regression model (since malaria risk is not binary). We'll say that a 1 dollar increase in income is associated with a *decrease* in risk, a 1 point increase in health is associated with a *decrease* in risk, and using a net is associated with a 15 point *decrease* in risk. That's the casual effect we're building in to the DAG.
+
+4. **Generate random columns that stand alone. Generate related columns using regression math. Consider adding random noise. This is an entirely trial and error process until you get numbers that look good. Rely *heavily* on plots as you try different coefficients and parameters. Optionally rescale any columns that go out of reasonable bounds. If you rescale, you'll need to tinker with the coefficients you used since the final effects will also get rescaled.**
+
+   Here we go! Let's make some data. I'll comment the code below so you can see what's happening at each step.
+
+```{r}
+#| indent: "   "
+
+# Make this randomness consistent
+set.seed(1234)
+
+# Simulate 1138 people (just for fun)
+n_people <- 1138
+
+net_data <- tibble(
+  # Make an ID column (not necessary, but nice to have)
+  id = 1:n_people,
+  # Generate income variable: normal, 500 ± 300
+  income = rnorm(n_people, mean = 500, sd = 75)
+) |>
+  # Generate health variable: beta, centered around 70ish
+  mutate(
+    health_base = rbeta(n_people, shape1 = 7, shape2 = 4) * 100,
+    # Health increases by 0.02 for every dollar in income
+    health_income_effect = income * 0.02,
+    # Make the final health score and add some noise
+    health = health_base +
+      health_income_effect +
+      rnorm(n_people, mean = 0, sd = 3),
+    # Rescale so it doesn't go above 100
+    health = rescale(health, to = c(min(health), 100))
+  ) |>
+  # Generate net variable based on income, health, and random noise
+  mutate(
+    net_score = (0.5 * income) +
+      (1.5 * health) +
+      rnorm(n_people, mean = 0, sd = 15),
+    # Scale net score down to 0.05 to 0.95 to create a probability of using a net
+    net_probability = rescale(net_score, to = c(0.05, 0.95)),
+    # Randomly generate a 0/1 variable using that probability
+    net = rbinom(n_people, 1, net_probability)
+  ) |>
+  # Finally generate a malaria risk variable based on income, health, net use,
+  # and random noise
+  mutate(
+    malaria_risk_base = rbeta(n_people, shape1 = 4, shape2 = 5) * 100,
+    # Risk goes down by 10 when using a net. Because we rescale things,
+    # though, we have to make the effect a lot bigger here so it scales
+    # down to -10. Risk also decreases as health and income go up. I played
+    # with these numbers until they created reasonable coefficients.
+    malaria_effect = (-30 * net) + (-1.9 * health) + (-0.1 * income),
+    # Make the final malaria risk score and add some noise
+    malaria_risk = malaria_risk_base +
+      malaria_effect +
+      rnorm(n_people, 0, sd = 3),
+    # Rescale so it doesn't go below 0,
+    malaria_risk = rescale(malaria_risk, to = c(5, 70))
+  )
+
+# Look at all these columns!
+head(net_data)
+```
+
+5. **Verify all relationships with plots and models.**
+
+   Let's see if we have the relationships we want. Income looks like it's associated with health:
+
+```{r}
+#| label: check-income-health
+#| indent: "   "
+#| message: false
+
+ggplot(net_data, aes(x = income, y = health)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+lm(health ~ income, data = net_data) |> tidy()
+```
+
+   It looks like richer and healthier people are more likely to use nets:
+
+```{r}
+#| label: check-income-health-nets
+#| fig-width: 8
+#| fig-height: 4
+#| indent: "   "
+
+net_income <- ggplot(net_data, aes(x = income, fill = as.factor(net))) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = "bottom")
+
+net_health <- ggplot(net_data, aes(x = health, fill = as.factor(net))) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = "bottom")
+
+net_income + net_health
+```
+
+   Income increasing makes it 1% more likely to use a net; health increasing make it 2% more likely to use a net:
+
+```{r}
+#| indent: "   "
+
+glm(net ~ income + health, family = binomial(link = "logit"), data = net_data) |>
+  tidy(exponentiate = TRUE)
+```
+
+6. **Try it out!**
+
+   Is the effect in there? Let's try finding it by controlling for our two backdoors: health and income. Ordinarily we should do something like [matching or inverse probability weighting](/example/matching-ipw.qmd), but we'll just do regular regression here (which is okay-ish, since all these variables are indeed linearly related with each other—we made them that way!)
+
+   If we just look at the effect of nets on malaria risk without any statistical adjustment, we see that net cause a decrease of 13 points in malaria risk. This is wrong though becuase there's confounding.
+
+```{r}
+#| indent: "   "
+
+# Wrong correlation-is-not-causation effect
+model_net_naive <- lm(malaria_risk ~ net, data = net_data)
+tidy(model_net_naive)
+```
+
+   If we control for the confounders, we get the 10 point ATE. It works!
+
+```{r}
+#| indent: "   "
+
+# Correctly adjusted ATE effect
+model_net_ate <- lm(malaria_risk ~ net + health + income, data = net_data)
+tidy(model_net_ate)
+```
+
+7. **Save the data.**
+
+   Since it works, let's save it:
+
+```{r}
+#| indent: "   "
+
+# In the end, all we need is id, income, health, net, and malaria risk:
+net_data_final <- net_data |>
+  select(id, income, health, net, malaria_risk)
+head(net_data_final)
+```
+
+```{r}
+#| indent: "   "
+#| eval: false
+
+# Save it as a CSV file
+write_csv(net_data_final, "data/bed_nets.csv")
+```

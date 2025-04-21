@@ -73,6 +73,7 @@ website:
       style: "docked"
       search: false
       background: dark
+      collapse-level: 3
       contents:
         - section: "Overview"
           contents:
@@ -146,8 +147,20 @@ website:
           contents:
             - text: "Random numbers"
               file: example/random-numbers.qmd
-            - text: "Synthetic data"
+            - text: "Guide to synthetic data"
               file: example/synthetic-data.qmd
+            - section: "Specific approaches"
+              contents:
+                - text: "Adjustment-based (IPW/matching)"
+                  file: example/synthetic-data-ipw.qmd
+                - text: "RCTs"
+                  file: example/synthetic-data-rct.qmd
+                - text: "Diff-in-diff"
+                  file: example/synthetic-data-diff-diff.qmd
+                - text: "Regression discontinuity"
+                  file: example/synthetic-data-rdd.qmd
+                - text: "Instrumental variables"
+                  file: example/synthetic-data-iv.qmd
         - section: "Examples"
           contents:
             - example/rstudio-tidyverse.qmd

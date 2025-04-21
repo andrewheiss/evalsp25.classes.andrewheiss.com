@@ -1,5 +1,19 @@
 # This file is generated with data/extract-news-headings.R; do not edit by hand
 
+- title: "Synthetic data details + examples"
+  categories:
+  - "course details"
+  date_actual: '1745248500'
+  date: "2025-04-21T15:15:00"
+  href: "/news/2025-04-21_synthetic-data-examples.html"
+  headings:
+  - id: "were-supposed-to-create-a-dataset-with-an-effect-built-in-and-then-use-statistics-to-find-that-same-effect-wouldnt-we-already-know-the-results-in-advance-since-we-made-the-effect"
+    text: "We’re supposed to create a dataset with an effect built-in, and then use
+      statistics to find that same effect? Wouldn’t we already know the results in
+      advance, since we made the effect?"
+  - id: "are-there-guides-to-creating-synthetic-data-for-each-of-the-causal-inference-approaches"
+    text: "Are there guides to creating synthetic data for each of the causal inference
+      approaches?"
 - title: "Week 2 FAQs"
   categories:
   - "FAQs"

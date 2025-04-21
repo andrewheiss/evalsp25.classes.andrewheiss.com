@@ -1,0 +1,31 @@
+---
+title: "Synthetic data details + examples"
+date: "2025-04-21T15:15"
+categories: [course details]
+---
+
+Hi everyone!
+
+I've gotten a couple questions about the synthetic data part of the final project:
+
+### We're supposed to create a dataset with an effect built-in, and then use statistics to find that same effect? Wouldn't we already know the results in advance, since we made the effect?
+
+Yep! That's the goal of the final project. You're building in a causal effect and then finding it.
+
+You want to make sure that your analysis approach can actually find a causal effect so that you can feel confident that if you were using real data, you'd also be able to find a causal effect.
+
+You're essentially building the "plumbing" for your potential real data. You'll make all the plots and models and everything with your fake data, ensuring that all that code creates the output that you want, and then later if you ever collect real data, you'll be able to swap out the fake data for the real data and theoretically, it'll show you the real results.
+
+### Are there guides to creating synthetic data for each of the causal inference approaches?
+
+Yep! In the original [big ol' huge guide to synthetic data](/example/synthetic-data.qmd), I had specific subsections for IPW/matching, RCTs, diff-in-diff, regression discontinuity, and instrumental variables, and you could jump down to them using the table of contents on the side.
+
+But because that page is so long, it was often hard to navigate around and get down to those sections. So I split them off into smaller approach-specific pages. If you refresh the course website at the examples page, you'll see a new section in the left sidebar for "Specific approaches" with these pages:
+
+- [Synthetic data for adjustment-based approaches](/example/synthetic-data-ipw.qmd)
+- [Synthetic data for RCTs](/example/synthetic-data-rct.qmd)
+- [Synthetic data for diff-in-diff](/example/synthetic-data-diff-diff.qmd)
+- [Synthetic data for regression discontinuity](/example/synthetic-data-rdd.qmd)
+- [Synthetic data for instrumental variables](/example/synthetic-data-iv.qmd)
+
+It's all the same content that was in the mega guide before, just split out to be easier to find and navigate.
