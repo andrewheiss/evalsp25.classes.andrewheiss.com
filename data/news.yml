@@ -1,5 +1,12 @@
 # This file is generated with data/extract-news-headings.R; do not edit by hand
 
+- title: "Final deadlines for things"
+  categories:
+  - "course details"
+  date_actual: '1745435940'
+  date: "2025-04-23T19:19:00"
+  href: "/news/2025-04-23_final-deadlines.html"
+  headings: []
 - title: "Synthetic data details + examples"
   categories:
   - "course details"

@@ -28,6 +28,13 @@ website:
   description: "Use modern statistical and data scientific tools to measure causal effects and evaluate public policy"
   site-url: "https://evalsp25.classes.andrewheiss.com"
 
+  announcement:
+    icon: calendar-check
+    dismissable: true
+    content: "**Reminder!** The final deadline for all assignments other than the final project is **Tuesday, April 29 at 11:59 PM** ([details](/news/2025-04-23_final-deadlines.html))"
+    type: danger
+    position: below-navbar
+
   favicon: "/files/icon-512.png"
 
   twitter-card:
