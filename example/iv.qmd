@@ -198,21 +198,18 @@ There are several functions from different R packages that let you do 2SLS, and 
 
 - [`iv_robust()` from {estimatr}](https://declaredesign.org/r/estimatr/articles/getting-started.html#iv_robust):
     - Syntax: `outcome ~ treatment | instrument`
-    - Benefits: Handles robust and clustered standard errors
-- [`ivreg()` from {ivreg}](https://github.com/john-d-fox/ivreg/):
+    - Benefits: Handles robust and clustered standard errors; includes special tests for weak instruments (that are better than the standard "check if F > 10")
+- [`feols()` from {fixest}](https://raw.githack.com/uo-ec607/lectures/master/08-regression/08-regression.html#Option_3:_fixest::feols()):
+    - Syntax: `outcome ~ treatment | instrument` or `outcome ~ treatment | fixed effects | instrument` (if using fixed effects)
+    - Benefits: Handles fixed effects really quickly
+- [`ivreg()` from {ivreg}](https://zeileis.github.io/ivreg/):
     - Syntax: `outcome ~ treatment | instrument`
-    - Benefits: Includes a ton of fancy diagnostics
-- [`ivreg()` from {AER}](https://raw.githack.com/uo-ec607/lectures/master/08-regression/08-regression.html#Option_1:_AER::ivreg()):
-    - Syntax: `outcome ~ treatment | instrument`
-    - Benefits: Includes special tests for weak instruments (that are better than the standard "check if F > 10"), like Anderson-Rubin confidence intervals
-- [`lfe()` from {felm}](https://raw.githack.com/uo-ec607/lectures/master/08-regression/08-regression.html#Option_3:_felm::lfe()):
-    - Syntax: `outcome ~ treatment | fixed effects | instrument`
-    - Benefits: Handles fixed effects really quickly (kind of like `feols()` that you used in Problem Set 5)
+    - Benefits: Includes special tests for weak instruments (that are better than the standard "check if F > 10")
 - [`plm()` from {plm}](https://cran.r-project.org/web/packages/plm/vignettes/plmPackage.html#instrumental-variable-estimators):
     - Syntax: `outcome ~ treatment | instrument`
     - Benefits: Handles panel data (country/year, state/year, etc.)
 
-[This page here has more detailed examples of the main three](https://raw.githack.com/uo-ec607/lectures/master/08-regression/08-regression.html#Instrumental_variables): `iv_robust()`, `ivreg()`, and `lfe()`
+[This page here has more detailed examples of the main three](https://raw.githack.com/uo-ec607/lectures/master/08-regression/08-regression.html#Instrumental_variables): `iv_robust()`, `ivreg()`, and `feols()`
 
 I typically like using `iv_robust()`, so we'll do that here. Instead of running a first stage, generating predictions, and running a second stage, we can do it all at once like this:
 
@@ -409,31 +406,36 @@ The main diagnostic we care about here is the first one: "Weak instruments". Thi
 
 Another approach for checking for weak instruments is to calculate something called the Anderson-Rubin confidence set, which is essentially a 95% confidence interval for your coefficient that shows the stability of the coefficient based on how weak or strong the instrument is. This test was invented in like 1949 and it's arguably more robust than checking F statistics, but for whatever reason, *nobody really teaches it or uses it!*. It's not in any of the textbooks for this class, and it's really kind of rare. Even if you google "anderson rubin test weak instruments", you'll only find a bunch of lecture notes from fancy econometrics classes (like [p. 10 here](https://economics.yale.edu/sites/default/files/files/Workshops-Seminars/Econometrics/andrews1-051012.pdf), or [p. 4 here](https://www.ssc.wisc.edu/~xshi/econ715/Lecture_11_WeakIV.pdf), or [p. 4 here](https://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/MIT14_384F13_lec7and8.pdf)).
 
-Additionally, most of the automatic 2SLS R packages don't provide an easy way to do this test! The only one I've found is in the {AER} package. Basically, create a 2SLS model with AER's `ivreg()` and then feed that model to the `anderson.rubin.ci()` function from the {ivpack} package. This doesn't work with models you make with `iv_robust()` or any of the other packages that do 2SLS—only with AER's `ivreg()`. It's a hassle.
+Most of the automatic 2SLS R packages don't provide an easy way to do this test! But there *is* a package dedicated to IV diagnostics (conveniently named {ivDiag}) that does this test and a ton of others ([see here for a tutorial about all of them](https://yiqingxu.org/packages/ivDiag/articles/iv_tutorial.html#omnibus-function)).
 
-Installing {ivpack} is a little tricky because the maintainers have abandoned it and didn't make necessary updates to keep it on CRAN, so it was removed in June 2022. That means you can't just run `install.packages("ivpack")`. Booo.
+To use it, you need to use `ivDiag()`, which will return a list of a bunch of diagnostics. You have to specify the dataset, the outcome (`Y`), the treatment (`D`), and the instrument(s) (`Z`), and it'll take a few seconds to run because it does some fancy sampling work behind the scenes:
 
-Fortunately there's a way around this. Posit keeps copies of every version of CRAN packages and provides them to the public at [Posit Public Package Manager](https://packagemanager.posit.co/client/#/). You can use Posit Package Manager to install a specific version of any package. The [last working version of {ivpack} was 1.2](https://packagemanager.posit.co/client/#/repos/cran/packages/overview?search=ivpack), so we can use the `install_version()` function from the {devtools} package to install that version, like so:
+```{r}
+#| message: false
+#| warning: false
+library(ivDiag)
 
-```{r eval=FALSE}
-devtools::install_version("ivpack", "1.2")
+diagnostics <- ivDiag(
+  data = ed_real,
+  Y = "wage",
+  D = "education",
+  Z = c("education_dad", "education_mom")
+)
 ```
 
-That should magically work.
+The `diagnostics` object has a bunch of different slots, like the first stage F-statistic:
 
-```{r warning=FALSE, message=FALSE}
-library(AER)  # For ivreg()
-# library(ivpack)  # For IV diagnostics like Anderson-Rubin causal effects
-
-# You have to include x = TRUE so that this works with diagnostic functions
-model <- ivreg(wage ~ education | education_dad + education_mom,
-               data = ed_real, x = TRUE)
-
-# AR 95% confidence interval
-# anderson.rubin.ci(model)
+```{r}
+diagnostics$F_stat
 ```
 
-Based on this confidence interval, given the strength (or weakness) of the instruments, the IV estimate could be as low as 75.9 and as high as 152, which is a fairly big range around the \$112 effect we found. Neat.
+Importantly, it has Anderson-Rubin confidence intervals:
+
+```{r}
+diagnostics$AR
+```
+
+Based on this confidence interval, given the strength (or weakness) of the instruments, the IV estimate could be as low as 76 and as high as 152, which is a fairly big range around the \$112 effect we found. Neat. 
 
 There's no magic threshold to look for in these confidence intervals—you're mostly concerned with how much potential variability there is. If you're fine with a causal effect that could be between 76 and 152, great. If you want that range to be narrower, find some better instruments.
 
@@ -559,14 +561,20 @@ summary(model_2sls)
 
 The p-value for the "Weak instruments" test is tiny, which means we can safely reject the null hypothesis that the near college instrument is weak. Neat.
 
-To calculate Anderson-Rubin confidence intervals, we need to rerun the model with the `ivreg()` function (ugh) and feed those results to `anderson.rubin.ci()`:
+To calculate Anderson-Rubin confidence intervals, we can use `ivDiag()`:
 
 ```{r}
-#| eval: false
-model_again <- ivreg(lwage ~ educ + smsa66 + exper + expersq + black + south66 |
-                       nearc4 + smsa66 + exper + expersq + black + south66,
-                     data = card, x = TRUE)
-anderson.rubin.ci(model_again)
+#| message: false
+#| warning: false
+diagnostics_card <- ivDiag(
+  data = card,
+  Y = "lwage",
+  D = "educ",
+  Z = "nearc4",
+  controls = c("smsa66", "exper", "expersq", "black", "south66")
+)
+
+diagnostics_card$AR
 ```
 
-Phew. That's a pretty wide interval, ranging from 5.7% to 31.5%. It's still positive, but it could sometimes be fairly small.
+Phew. That's a pretty wide interval, ranging from 6% to 31%. It's still positive, but it could sometimes be fairly small.

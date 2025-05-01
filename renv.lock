@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.2",
+    "Version": "4.4.3",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -9,23 +9,6 @@
     ]
   },
   "Packages": {
-    "AER": {
-      "Package": "AER",
-      "Version": "1.2-14",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "Formula",
-        "R",
-        "car",
-        "lmtest",
-        "sandwich",
-        "stats",
-        "survival",
-        "zoo"
-      ],
-      "Hash": "c59e9840e0e17154bb7bb3e2ed89b10c"
-    },
     "AsioHeaders": {
       "Package": "AsioHeaders",
       "Version": "1.22.1-2",
@@ -1156,6 +1139,20 @@
       ],
       "Hash": "8ddf795104defe53c5392a588888ec68"
     },
+    "doParallel": {
+      "Package": "doParallel",
+      "Version": "1.0.17",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "foreach",
+        "iterators",
+        "parallel",
+        "utils"
+      ],
+      "Hash": "451e5edf411987991ab6a5410c45011f"
+    },
     "dplyr": {
       "Package": "dplyr",
       "Version": "1.1.4",
@@ -1467,6 +1464,19 @@
       ],
       "Hash": "1a0a9a3d5083d0d573c4214576f1e690"
     },
+    "foreach": {
+      "Package": "foreach",
+      "Version": "1.5.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "codetools",
+        "iterators",
+        "utils"
+      ],
+      "Hash": "618609b42c9406731ead03adf5379850"
+    },
     "fpc": {
       "Package": "fpc",
       "Version": "2.2-13",
@@ -1720,6 +1730,24 @@
         "withr"
       ],
       "Hash": "384b388bd9155468d2c851846ee69f9f"
+    },
+    "ggfortify": {
+      "Package": "ggfortify",
+      "Version": "0.4.17",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "dplyr",
+        "ggplot2",
+        "grid",
+        "gridExtra",
+        "methods",
+        "scales",
+        "stringr",
+        "tibble",
+        "tidyr"
+      ],
+      "Hash": "28eb83fd20b824710e681fc4e1a9ac94"
     },
     "gghalves": {
       "Package": "gghalves",
@@ -2287,6 +2315,39 @@
       ],
       "Hash": "0080607b4a1a7b28979aecef976d8bc2"
     },
+    "iterators": {
+      "Package": "iterators",
+      "Version": "1.0.14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "8954069286b4b2b0d023d1b288dce978"
+    },
+    "ivDiag": {
+      "Package": "ivDiag",
+      "Version": "1.0.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "doParallel",
+        "fixest",
+        "foreach",
+        "future",
+        "ggfortify",
+        "ggplot2",
+        "glue",
+        "haven",
+        "lfe",
+        "patchwork",
+        "testthat",
+        "wCorr"
+      ],
+      "Hash": "def01aad7ae44a04ab508866827a3ed9"
+    },
     "ivreg": {
       "Package": "ivreg",
       "Version": "0.6-4",
@@ -2476,6 +2537,24 @@
         "R"
       ],
       "Hash": "d908914ae53b04d4c0c0fd72ecc35370"
+    },
+    "lfe": {
+      "Package": "lfe",
+      "Version": "3.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Formula",
+        "Matrix",
+        "R",
+        "compiler",
+        "methods",
+        "parallel",
+        "sandwich",
+        "utils",
+        "xtable"
+      ],
+      "Hash": "cecbb9d585c9e3fd0a5d219fcb8ddc74"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -2720,6 +2799,16 @@
         "Rcpp"
       ],
       "Hash": "785ef8e22389d4a7634c6c944f2dc07d"
+    },
+    "mnormt": {
+      "Package": "mnormt",
+      "Version": "2.1.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "c83992ef63553d1e4b97162a4a753470"
     },
     "modelr": {
       "Package": "modelr",
@@ -4599,6 +4688,21 @@
         "withr"
       ],
       "Hash": "390f9315bc0025be03012054103d227c"
+    },
+    "wCorr": {
+      "Package": "wCorr",
+      "Version": "1.9.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp",
+        "RcppArmadillo",
+        "minqa",
+        "mnormt",
+        "stats"
+      ],
+      "Hash": "25b6ec4a3939ff975105fa2f8b12c411"
     },
     "waiter": {
       "Package": "waiter",
