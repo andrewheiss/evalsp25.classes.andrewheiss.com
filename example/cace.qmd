@@ -164,8 +164,8 @@ The proportion of compliers is a little trickier, but doable with some algebraic
 
 $$
 \begin{aligned}
-\pi_\text{A} + \pi_\text{C} =& \text{% yes in treatment; or} \\
-\pi_\text{C} =& \text{% yes in treatment} - \pi_\text{A}
+\pi_\text{A} + \pi_\text{C} =&\ \%\ \text{yes in treatment; or} \\
+\pi_\text{C} =&\ \%\ \text{yes in treatment} - \pi_\text{A}
 \end{aligned}
 $$
 
@@ -173,8 +173,8 @@ We actually know $\pi_\text{A}$—remember in the graph above that the people wh
 
 $$
 \begin{aligned}
-\pi_\text{C} =& \text{% yes in treatment} - \pi_\text{A} \\
-=& \text{% yes in treatment} - \text{% yes in control}
+\pi_\text{C} =&\ \%\ \text{yes in treatment} - \pi_\text{A} \\
+=&\ \%\ \text{yes in treatment} - \%\ \text{yes in control}
 \end{aligned}
 $$
 
